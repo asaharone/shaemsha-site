@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://asaharone.github.io',
-  base: process.env.CI ? '/shaemsha-site/' : '/',
+  base: '/shaemsha-site/',
   output: 'static',
   vite: {
     plugins: [tailwindcss()]
