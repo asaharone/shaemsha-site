@@ -1,25 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL;
+
+const projects = [
+  { title: '25UNION Fashion Film', tag: 'Fashion', vimeoId: '787859901', thumb: 'https://i.vimeocdn.com/video/1778649750-d_640' },
+  { title: 'ARI VILLOSO Wedding', tag: 'Campaigns', vimeoId: '900404433', thumb: 'https://i.vimeocdn.com/video/1778647385-d_640' },
+  { title: 'Highlights Reel', tag: 'Showreel', vimeoId: '703936443', thumb: 'https://i.vimeocdn.com/video/1421715846-d_640' },
+  { title: 'LU Brand Film', tag: 'Fashion', vimeoId: '900446985', thumb: 'https://i.vimeocdn.com/video/1778722704-d_640' },
+];
 ---
 
 <BaseLayout title="EMILIA SHAEMSHA — Videographer · Photographer · Director">
 
   <!-- HERO -->
   <section class="relative h-screen flex items-center justify-center overflow-hidden">
-    <!-- Background Video -->
+    <!-- Background Image -->
     <div class="absolute inset-0">
-      <div class="w-full h-full" style="pointer-events:none;">
-        <iframe
-          src="https://player.vimeo.com/video/767830687?background=1&autoplay=1&loop=1&muted=1&quality=1080p"
-          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[177.78vh] min-h-[56.25vw] w-auto h-auto"
-          style="aspect-ratio:16/9;"
-          frameborder="0"
-          allow="autoplay; fullscreen"
-          title="Showreel"
-        ></iframe>
-      </div>
-      <div class="absolute inset-0 bg-gradient-to-b from-bg/50 via-bg/30 to-bg"></div>
+      <img src={`${base}images/hero.jpg`} alt="" class="w-full h-full object-cover opacity-40" />
+      <div class="absolute inset-0 bg-gradient-to-b from-bg/60 via-bg/30 to-bg"></div>
     </div>
 
     <!-- Content -->
@@ -53,16 +51,14 @@ const base = import.meta.env.BASE_URL;
 
   <!-- FEATURED WORK -->
   <section class="py-24 px-6 max-w-7xl mx-auto fade-in">
-    <h2 class="font-serif text-3xl md:text-4xl mb-12">Selected Work</h2>
+    <div class="flex justify-between items-end mb-12">
+      <h2 class="font-serif text-3xl md:text-4xl">Selected Work</h2>
+      <a href={`${base}work/`} class="text-sm text-accent hover:text-accent-hover transition-colors hidden md:block">View All →</a>
+    </div>
     <div class="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide">
-      {[
-        { title: 'Hotel Campaign', tag: 'Hotels', img: `${base}images/hero.jpg` },
-        { title: 'Fashion Editorial', tag: 'Campaigns', img: `${base}images/hero.jpg` },
-        { title: 'Brand UGC', tag: 'UGC', img: `${base}images/hero.jpg` },
-        { title: 'Short Film', tag: 'Film', img: `${base}images/hero.jpg` },
-      ].map(project => (
+      {projects.map(project => (
         <a href={`${base}work/`} class="group flex-shrink-0 w-[300px] md:w-[400px] snap-start relative overflow-hidden rounded-lg aspect-[16/9]">
-          <img src={project.img} alt={project.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <img src={project.thumb} alt={project.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
           <div class="absolute bottom-0 left-0 p-5">
             <span class="text-xs tracking-wider uppercase text-accent font-mono">{project.tag}</span>
@@ -130,7 +126,7 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
-  <!-- INSTAGRAM FEED placeholder -->
+  <!-- INSTAGRAM FEED -->
   <section class="py-24 border-t border-border fade-in">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex justify-between items-center mb-8">

@@ -1,30 +1,40 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL;
+
+const fashionFilms = [
+  { title: '25UNION Fashion Film 2023', vimeoId: '787859901', aspect: '56.25%', orientation: 'landscape' },
+  { title: '25UNION Brand Film', vimeoId: '900449529', aspect: '177.5%', orientation: 'vertical' },
+  { title: 'LU Brand 2024', vimeoId: '900446985', aspect: '177.5%', orientation: 'vertical' },
+  { title: 'ARI VILLOSO Wedding', vimeoId: '900404433', aspect: '177.5%', orientation: 'vertical' },
+  { title: 'Fashion Video for Angelann', vimeoId: '362290091', aspect: '56.25%', orientation: 'landscape' },
+  { title: 'Motion Graphics Reel', vimeoId: '767830687', aspect: '56.25%', orientation: 'landscape' },
+];
 ---
 
-<BaseLayout title="Production — Emilia Shaemsha">
+<BaseLayout title="Production — SHAEMSHA PRODUCTION">
 
   <!-- HERO with Showreel -->
   <section class="relative pt-20">
-    <!-- Showreel Video -->
+    <!-- Main Showreel 2023 -->
     <div class="max-w-6xl mx-auto px-6 pt-16">
-      <div class="relative aspect-video rounded-xl overflow-hidden">
+      <div class="relative rounded-xl overflow-hidden" style="padding:56.25% 0 0 0;position:relative;">
         <iframe
-          src="https://player.vimeo.com/video/767830687?title=0&byline=0&portrait=0&color=C4A265"
-          class="absolute inset-0 w-full h-full"
+          src="https://player.vimeo.com/video/796642146?title=0&byline=0&portrait=0&color=C4A265"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
           frameborder="0"
           allow="autoplay; fullscreen; picture-in-picture"
           allowfullscreen
-          title="Showreel — Emilia Shaemsha"
+          title="SHOWREEL 2023 — SHAEMSHA PRODUCTION"
         ></iframe>
       </div>
     </div>
 
     <!-- Text below -->
     <div class="max-w-4xl mx-auto text-center py-16 px-6">
-      <p class="text-xs tracking-[0.3em] uppercase text-text-muted mb-4">Director · Cinematographer</p>
-      <h1 class="font-serif text-5xl md:text-7xl mb-8">EMILIA SHAEMSHA</h1>
+      <p class="text-xs tracking-[0.3em] uppercase text-accent font-mono mb-4">SHAEMSHA PRODUCTION</p>
+      <h1 class="font-serif text-5xl md:text-7xl mb-4">EMILIA SHAKH</h1>
+      <p class="text-text-muted mb-8">Director · Cinematographer · Editor</p>
       <a href="#inquiry" class="inline-block border border-accent text-accent px-8 py-4 text-sm tracking-wider uppercase hover:bg-accent hover:text-bg transition-all duration-300">
         Discuss a Project ↓
       </a>
@@ -47,15 +57,64 @@ const base = import.meta.env.BASE_URL;
           behind the brand.
         </p>
         <p>
-          From concept to final cut, I oversee every stage of production to ensure the visual language
-          stays consistent and the story lands with impact.
+          From concept to final cut, I oversee every stage of production — directing, shooting, editing,
+          and motion graphics — to ensure the visual language stays consistent and the story lands with impact.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- HIGHLIGHTS REEL -->
   <section class="py-24 px-6 fade-in">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex justify-between items-end mb-8">
+        <h2 class="font-serif text-3xl">Highlights</h2>
+        <a href="https://vimeo.com/user73530306" target="_blank" class="text-sm text-accent hover:text-accent-hover transition-colors">
+          View on Vimeo →
+        </a>
+      </div>
+      <div class="relative rounded-xl overflow-hidden" style="padding:56.25% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/703936443?title=0&byline=0&portrait=0&color=C4A265"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          title="HIGHLIGHTS — SHAEMSHA PRODUCTION"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FASHION FILMS & WORK -->
+  <section class="py-24 px-6 border-t border-border fade-in">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-serif text-3xl text-center mb-4">Fashion Films & Commercial Work</h2>
+      <p class="text-text-muted text-center mb-12">All content — directing, shooting, editing — by Emilia Shakh</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {fashionFilms.map(film => (
+          <div class="group">
+            <div class={`relative rounded-lg overflow-hidden ${film.orientation === 'vertical' ? 'max-w-[280px] mx-auto' : ''}`} style={`padding:${film.aspect} 0 0 0;position:relative;`}>
+              <iframe
+                src={`https://player.vimeo.com/video/${film.vimeoId}?title=0&byline=0&portrait=0&color=C4A265`}
+                style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen
+                title={film.title}
+                loading="lazy"
+              ></iframe>
+            </div>
+            <p class="text-sm text-text-muted mt-3 text-center">{film.title}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="py-24 px-6 border-t border-border fade-in">
     <div class="max-w-5xl mx-auto">
       <h2 class="font-serif text-3xl text-center mb-12">Services</h2>
       <div class="grid md:grid-cols-3 gap-6">
@@ -65,6 +124,7 @@ const base = import.meta.env.BASE_URL;
           { icon: '🎵', title: 'Music Videos', desc: 'Cinematic music video production' },
           { icon: '👗', title: 'Fashion Campaigns', desc: 'Editorial and commercial fashion production' },
           { icon: '🎨', title: 'Creative Direction', desc: 'Concept development and art direction' },
+          { icon: '✨', title: 'Motion Graphics', desc: 'Animated titles, logos, and visual effects' },
         ].map(s => (
           <div class="p-6 border border-border rounded-xl bg-bg-card">
             <div class="text-2xl mb-3">{s.icon}</div>
@@ -76,8 +136,18 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
+  <!-- BRANDS -->
+  <section class="py-16 border-t border-border fade-in">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-xs tracking-[0.2em] uppercase text-text-muted mb-6">Brands & Clients</p>
+      <p class="font-serif text-xl md:text-2xl text-text/70 tracking-wide">
+        25UNION · LU · ARI VILLOSO · Angelann
+      </p>
+    </div>
+  </section>
+
   <!-- PROCESS -->
-  <section class="py-24 px-6 border-t border-border fade-in">
+  <section class="py-24 px-6 fade-in">
     <div class="max-w-4xl mx-auto">
       <h2 class="font-serif text-3xl text-center mb-12">Process</h2>
       <div class="grid md:grid-cols-5 gap-6">
@@ -166,3 +236,5 @@ const base = import.meta.env.BASE_URL;
   </section>
 
 </BaseLayout>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
