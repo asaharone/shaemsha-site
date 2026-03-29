@@ -5,9 +5,24 @@ const base = import.meta.env.BASE_URL;
 
 <BaseLayout title="Production — Emilia Shaemsha">
 
-  <!-- HERO -->
-  <section class="relative pt-32 pb-24 px-6">
-    <div class="max-w-4xl mx-auto text-center">
+  <!-- HERO with Showreel -->
+  <section class="relative pt-20">
+    <!-- Showreel Video -->
+    <div class="max-w-6xl mx-auto px-6 pt-16">
+      <div class="relative aspect-video rounded-xl overflow-hidden">
+        <iframe
+          src="https://player.vimeo.com/video/767830687?title=0&byline=0&portrait=0&color=C4A265"
+          class="absolute inset-0 w-full h-full"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          title="Showreel — Emilia Shaemsha"
+        ></iframe>
+      </div>
+    </div>
+
+    <!-- Text below -->
+    <div class="max-w-4xl mx-auto text-center py-16 px-6">
       <p class="text-xs tracking-[0.3em] uppercase text-text-muted mb-4">Director · Cinematographer</p>
       <h1 class="font-serif text-5xl md:text-7xl mb-8">EMILIA SHAEMSHA</h1>
       <a href="#inquiry" class="inline-block border border-accent text-accent px-8 py-4 text-sm tracking-wider uppercase hover:bg-accent hover:text-bg transition-all duration-300">
