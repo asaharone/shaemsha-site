@@ -1,0 +1,87 @@
+---
+const base = import.meta.env.BASE_URL;
+const pathname = Astro.url.pathname;
+
+const links = [
+  { href: `${base}`, label: 'Home' },
+  { href: `${base}work/`, label: 'Work' },
+  { href: `${base}collaborate/`, label: 'Collaborate' },
+  { href: `${base}shop/`, label: 'Presets' },
+  { href: `${base}production/`, label: 'Production' },
+  { href: `${base}about/`, label: 'About' },
+];
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-nav">
+  <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+    <!-- Logo -->
+    <a href={base} class="font-serif text-xl tracking-[0.2em] text-text uppercase font-semibold hover:text-accent transition-colors">
+      SHAEMSHA
+    </a>
+
+    <!-- Desktop Links -->
+    <div class="hidden md:flex items-center gap-8">
+      {links.slice(1).map(link => (
+        <a
+          href={link.href}
+          class={`text-sm tracking-wide uppercase transition-colors ${
+            pathname === link.href ? 'text-accent' : 'text-text-muted hover:text-text'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <button id="menu-toggle" class="md:hidden text-text" aria-label="Menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-bg/95 backdrop-blur-md border-t border-border">
+    <div class="px-6 py-6 flex flex-col gap-4">
+      {links.slice(1).map(link => (
+        <a
+          href={link.href}
+          class={`text-sm tracking-wide uppercase py-2 transition-colors ${
+            pathname === link.href ? 'text-accent' : 'text-text-muted hover:text-text'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script>
+  const nav = document.getElementById('main-nav')!;
+  const toggle = document.getElementById('menu-toggle')!;
+  const menu = document.getElementById('mobile-menu')!;
+  const icon = document.getElementById('menu-icon')!;
+
+  // Scroll behavior
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.classList.add('bg-bg/90', 'backdrop-blur-md');
+    } else {
+      nav.classList.remove('bg-bg/90', 'backdrop-blur-md');
+    }
+    lastScroll = window.scrollY;
+  });
+
+  // Mobile toggle
+  toggle.addEventListener('click', () => {
+    const open = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    icon.setAttribute('d', open
+      ? 'M4 6h16M4 12h16M4 18h16'
+      : 'M6 18L18 6M6 6l12 12'
+    );
+  });
+</script>

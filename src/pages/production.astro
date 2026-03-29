@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Production — Emilia Shaemsha">
+
+  <!-- HERO -->
+  <section class="relative pt-32 pb-24 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-xs tracking-[0.3em] uppercase text-text-muted mb-4">Director · Cinematographer</p>
+      <h1 class="font-serif text-5xl md:text-7xl mb-8">EMILIA SHAEMSHA</h1>
+      <a href="#inquiry" class="inline-block border border-accent text-accent px-8 py-4 text-sm tracking-wider uppercase hover:bg-accent hover:text-bg transition-all duration-300">
+        Discuss a Project ↓
+      </a>
+    </div>
+  </section>
+
+  <!-- DIRECTOR'S STATEMENT -->
+  <section class="py-24 px-6 border-t border-border fade-in">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <p class="font-serif text-2xl md:text-3xl italic text-accent/80 leading-relaxed">
+          "I believe every brand has a story worth filming. My job is to find the visual language
+          that makes it unforgettable."
+        </p>
+      </div>
+      <div class="space-y-4 text-text-muted leading-relaxed">
+        <p>
+          My approach to direction is rooted in cinematic storytelling — creating visuals that feel
+          like they belong on a screen, not a feed. Every project starts with understanding the emotion
+          behind the brand.
+        </p>
+        <p>
+          From concept to final cut, I oversee every stage of production to ensure the visual language
+          stays consistent and the story lands with impact.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="py-24 px-6 fade-in">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="font-serif text-3xl text-center mb-12">Services</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          { icon: '🎬', title: 'Commercial Direction', desc: 'Brand films, product videos, campaign visuals' },
+          { icon: '🎥', title: 'Brand Films', desc: 'Documentaries, storytelling, branded content' },
+          { icon: '🎵', title: 'Music Videos', desc: 'Cinematic music video production' },
+          { icon: '👗', title: 'Fashion Campaigns', desc: 'Editorial and commercial fashion production' },
+          { icon: '🎨', title: 'Creative Direction', desc: 'Concept development and art direction' },
+        ].map(s => (
+          <div class="p-6 border border-border rounded-xl bg-bg-card">
+            <div class="text-2xl mb-3">{s.icon}</div>
+            <h3 class="font-semibold mb-2">{s.title}</h3>
+            <p class="text-sm text-text-muted">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="py-24 px-6 border-t border-border fade-in">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-serif text-3xl text-center mb-12">Process</h2>
+      <div class="grid md:grid-cols-5 gap-6">
+        {[
+          { step: '01', title: 'Brief', desc: 'Discovery call & understanding your vision' },
+          { step: '02', title: 'Concept', desc: 'Creative treatment & visual direction' },
+          { step: '03', title: 'Pre-Prod', desc: 'Planning, locations, talent, logistics' },
+          { step: '04', title: 'Production', desc: 'Shoot day(s) with full crew' },
+          { step: '05', title: 'Delivery', desc: 'Post-production, editing & final delivery' },
+        ].map(p => (
+          <div class="text-center">
+            <div class="font-mono text-accent text-xs mb-2">{p.step}</div>
+            <h3 class="font-semibold text-sm mb-1">{p.title}</h3>
+            <p class="text-xs text-text-muted">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INQUIRY FORM -->
+  <section class="py-24 px-6 border-t border-border fade-in" id="inquiry">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-serif text-3xl text-center mb-4">Start a Conversation</h2>
+      <p class="text-text-muted text-center mb-12">Tell me about your project and let's bring it to life.</p>
+
+      <form action="https://formspree.io/f/placeholder" method="POST" class="space-y-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-xs tracking-wider uppercase text-text-muted mb-2">Name</label>
+            <input type="text" name="name" required
+              class="w-full bg-bg-card border border-border rounded-lg px-4 py-3 text-sm text-text focus:outline-none focus:border-accent transition-colors" />
+          </div>
+          <div>
+            <label class="block text-xs tracking-wider uppercase text-text-muted mb-2">Company</label>
+            <input type="text" name="company"
+              class="w-full bg-bg-card border border-border rounded-lg px-4 py-3 text-sm text-text focus:outline-none focus:border-accent transition-colors" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs tracking-wider uppercase text-text-muted mb-2">Email</label>
+          <input type="email" name="email" required
+            class="w-full bg-bg-card border border-border rounded-lg px-4 py-3 text-sm text-text focus:outline-none focus:border-accent transition-colors" />
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-xs tracking-wider uppercase text-text-muted mb-2">Project Type</label>
+            <select name="type"
+              class="w-full bg-bg-card border border-border rounded-lg px-4 py-3 text-sm text-text focus:outline-none focus:border-accent transition-colors">
+              <option value="">Select...</option>
+              <option>Commercial</option>
+              <option>Brand Film</option>
+              <option>Music Video</option>
+              <option>Fashion Campaign</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs tracking-wider uppercase text-text-muted mb-2">Budget Range</label>
+            <select name="budget"
+              class="w-full bg-bg-card border border-border rounded-lg px-4 py-3 text-sm text-text focus:outline-none focus:border-accent transition-colors">
+              <option value="">Select...</option>
+              <option>€2,000 – €5,000</option>
+              <option>€5,000 – €10,000</option>
+              <option>€10,000 – €25,000</option>
+              <option>€25,000+</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs tracking-wider uppercase text-text-muted mb-2">Project Brief</label>
+          <textarea name="brief" rows="5"
+            class="w-full bg-bg-card border border-border rounded-lg px-4 py-3 text-sm text-text focus:outline-none focus:border-accent transition-colors resize-none"
+            placeholder="Tell me about your project, vision, and timeline..."></textarea>
+        </div>
+
+        <button type="submit"
+          class="w-full bg-accent text-bg font-semibold py-4 rounded-lg text-sm tracking-wider uppercase hover:bg-accent-hover transition-colors">
+          Send Brief
+        </button>
+      </form>
+    </div>
+  </section>
+
+</BaseLayout>

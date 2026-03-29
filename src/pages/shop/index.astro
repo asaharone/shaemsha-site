@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Cinematic Presets — Emilia Shaemsha">
+  <section class="pt-32 pb-24 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="text-xs tracking-[0.2em] uppercase text-accent font-mono">Coming Soon</span>
+      <h1 class="font-serif text-5xl md:text-7xl mt-4 mb-6">Cinematic Presets</h1>
+      <p class="text-text-muted text-lg max-w-2xl mx-auto">
+        Professional Lightroom presets crafted for cinematic, fashion-forward editing.
+      </p>
+
+      <!-- Email signup -->
+      <div class="mt-12 max-w-md mx-auto">
+        <p class="text-text-muted text-sm mb-4">Get notified when presets launch + receive a free preset:</p>
+        <form action="https://formspree.io/f/placeholder" method="POST" class="flex gap-3">
+          <input type="email" name="email" placeholder="your@email.com" required
+            class="flex-1 bg-bg-card border border-border rounded-lg px-4 py-3 text-sm text-text focus:outline-none focus:border-accent transition-colors" />
+          <button type="submit"
+            class="bg-accent text-bg font-semibold px-6 py-3 rounded-lg text-sm tracking-wider uppercase hover:bg-accent-hover transition-colors whitespace-nowrap">
+            Notify Me
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

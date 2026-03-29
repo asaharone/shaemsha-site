@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="EMILIA SHAEMSHA — Videographer · Photographer · Director">
+
+  <!-- HERO -->
+  <section class="relative h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0">
+      <img src={`${base}images/hero.jpg`} alt="" class="w-full h-full object-cover opacity-40" />
+      <div class="absolute inset-0 bg-gradient-to-b from-bg/60 via-bg/30 to-bg"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative text-center z-10 px-6">
+      <h1 class="font-serif text-6xl md:text-8xl tracking-[0.15em] font-light mb-2">EMILIA</h1>
+      <p class="text-sm md:text-base tracking-[0.4em] uppercase text-text-muted mb-8">SHAEMSHA</p>
+      <p class="text-text-muted text-sm md:text-base tracking-wide mb-2">Videographer · Photographer · Director</p>
+      <p class="text-text-muted/60 text-xs tracking-wider uppercase">Cyprus — Available Worldwide</p>
+
+      <!-- CTA Blocks -->
+      <div class="mt-16 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={`${base}collaborate/`} class="group border border-border hover:border-accent px-8 py-4 text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-accent/10">
+          <span class="text-text-muted group-hover:text-accent transition-colors">For Brands →</span>
+        </a>
+        <a href={`${base}shop/`} class="group border border-border hover:border-accent px-8 py-4 text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-accent/10">
+          <span class="text-text-muted group-hover:text-accent transition-colors">Presets & Tools →</span>
+        </a>
+        <a href={`${base}production/`} class="group border border-border hover:border-accent px-8 py-4 text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-accent/10">
+          <span class="text-text-muted group-hover:text-accent transition-colors">Production →</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
+      <svg class="w-5 h-5 text-text-muted/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- FEATURED WORK -->
+  <section class="py-24 px-6 max-w-7xl mx-auto fade-in">
+    <h2 class="font-serif text-3xl md:text-4xl mb-12">Selected Work</h2>
+    <div class="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide">
+      {[
+        { title: 'Hotel Campaign', tag: 'Hotels', img: `${base}images/hero.jpg` },
+        { title: 'Fashion Editorial', tag: 'Campaigns', img: `${base}images/hero.jpg` },
+        { title: 'Brand UGC', tag: 'UGC', img: `${base}images/hero.jpg` },
+        { title: 'Short Film', tag: 'Film', img: `${base}images/hero.jpg` },
+      ].map(project => (
+        <a href={`${base}work/`} class="group flex-shrink-0 w-[300px] md:w-[400px] snap-start relative overflow-hidden rounded-lg aspect-[16/9]">
+          <img src={project.img} alt={project.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+          <div class="absolute bottom-0 left-0 p-5">
+            <span class="text-xs tracking-wider uppercase text-accent font-mono">{project.tag}</span>
+            <h3 class="text-lg font-medium mt-1">{project.title}</h3>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="py-16 border-y border-border fade-in">
+    <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 md:gap-16 text-center">
+      <div>
+        <div class="font-serif text-3xl md:text-4xl text-accent">97K+</div>
+        <div class="text-xs tracking-wider uppercase text-text-muted mt-1">Followers</div>
+      </div>
+      <div>
+        <div class="font-serif text-3xl md:text-4xl text-accent">150+</div>
+        <div class="text-xs tracking-wider uppercase text-text-muted mt-1">Campaigns</div>
+      </div>
+      <div>
+        <div class="font-serif text-3xl md:text-4xl text-accent">7+</div>
+        <div class="text-xs tracking-wider uppercase text-text-muted mt-1">Countries</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESET TEASER -->
+  <section class="py-24 px-6 max-w-7xl mx-auto fade-in">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="aspect-[4/3] rounded-lg overflow-hidden bg-bg-card">
+        <img src={`${base}images/hero.jpg`} alt="Preset preview" class="w-full h-full object-cover opacity-80" />
+      </div>
+      <div>
+        <span class="text-xs tracking-[0.2em] uppercase text-accent font-mono">New</span>
+        <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-4">Cinematic Presets</h2>
+        <p class="text-text-muted leading-relaxed mb-8">
+          Professional Lightroom presets crafted for cinematic, fashion-forward editing.
+          Transform your photos with one click.
+        </p>
+        <a href={`${base}shop/`} class="inline-block border border-accent text-accent px-8 py-3 text-sm tracking-wider uppercase hover:bg-accent hover:text-bg transition-all duration-300">
+          Shop Presets →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT TEASER -->
+  <section class="py-24 px-6 max-w-7xl mx-auto fade-in">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="order-2 md:order-1">
+        <h2 class="font-serif text-3xl md:text-4xl mb-4">About Emilia</h2>
+        <p class="text-text-muted leading-relaxed mb-6">
+          Ukrainian-born videographer and photographer based in Cyprus, creating cinematic visual stories
+          for brands, hotels, and fashion campaigns worldwide.
+        </p>
+        <a href={`${base}about/`} class="text-accent text-sm tracking-wider uppercase hover:text-accent-hover transition-colors">
+          More About Me →
+        </a>
+      </div>
+      <div class="order-1 md:order-2 aspect-[3/4] rounded-lg overflow-hidden max-w-sm mx-auto md:ml-auto">
+        <img src={`${base}images/hero.jpg`} alt="Emilia Shaemsha" class="w-full h-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM FEED placeholder -->
+  <section class="py-24 border-t border-border fade-in">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="font-serif text-2xl">@shaemsha</h2>
+        <a href="https://instagram.com/shaemsha" target="_blank" class="text-sm text-accent hover:text-accent-hover transition-colors">
+          Follow on Instagram →
+        </a>
+      </div>
+      <div class="grid grid-cols-3 md:grid-cols-6 gap-2">
+        {Array.from({ length: 6 }).map(() => (
+          <div class="aspect-square bg-bg-card rounded overflow-hidden">
+            <img src={`${base}images/hero.jpg`} alt="" class="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity duration-300" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
