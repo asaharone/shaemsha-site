@@ -1,0 +1,126 @@
+---
+interface Props {
+  beforeImage: string;
+  afterImage: string;
+  presetName: string;
+  autoPlay?: boolean;
+}
+
+const { beforeImage, afterImage, presetName, autoPlay = true } = Astro.props;
+---
+
+<div
+  class="ba-container relative overflow-hidden rounded-xl select-none"
+  data-autoplay={autoPlay ? 'true' : 'false'}
+  data-before={beforeImage}
+  data-after={afterImage}
+>
+  <!-- Before image (shown by default) -->
+  <img
+    src={beforeImage}
+    alt={`${presetName} — Before`}
+    class="ba-img-before w-full block"
+    loading="lazy"
+  />
+  <!-- After image (hidden, crossfades in) -->
+  <img
+    src={afterImage}
+    alt={`${presetName} — After`}
+    class="ba-img-after absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 ease-in-out"
+    loading="lazy"
+  />
+
+  <!-- Preset name label (top-left) -->
+  <div class="absolute top-3 left-3 z-10">
+    <span class="bg-black/55 backdrop-blur-sm text-accent text-[9px] font-semibold px-3 py-1.5 rounded tracking-[2px] uppercase">
+      {presetName}
+    </span>
+  </div>
+
+  <!-- Pill toggle (bottom-center) -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-10">
+    <button
+      class="ba-toggle relative flex items-center bg-black/60 backdrop-blur-md border border-white/10 rounded-full px-1 py-1 cursor-pointer"
+      type="button"
+      aria-label="Toggle before and after"
+    >
+      <!-- Sliding indicator -->
+      <span class="ba-slider absolute top-1 left-1 h-[calc(100%-8px)] w-[calc(50%-2px)] bg-accent/90 rounded-full transition-transform duration-300 ease-in-out"></span>
+      <!-- Labels -->
+      <span class="ba-label-before relative z-10 text-[10px] font-semibold tracking-[1px] px-4 py-1.5 text-bg transition-colors duration-300">BEFORE</span>
+      <span class="ba-label-after relative z-10 text-[10px] font-semibold tracking-[1px] px-4 py-1.5 text-white/50 transition-colors duration-300">AFTER</span>
+    </button>
+  </div>
+</div>
+
+<style>
+  .ba-container[data-state="after"] .ba-img-after {
+    opacity: 1;
+  }
+  .ba-container[data-state="after"] .ba-slider {
+    transform: translateX(100%);
+  }
+  .ba-container[data-state="after"] .ba-label-before {
+    color: rgba(255,255,255,0.5);
+  }
+  .ba-container[data-state="after"] .ba-label-after {
+    color: var(--color-bg, #0A0A0A);
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.ba-container').forEach(function(container) {
+      var toggle = container.querySelector('.ba-toggle');
+      var timer = null;
+      var idleTimer = null;
+
+      function setState(state) {
+        container.setAttribute('data-state', state);
+      }
+
+      function flip() {
+        var current = container.getAttribute('data-state');
+        setState(current === 'after' ? 'before' : 'after');
+      }
+
+      function startAuto() {
+        if (container.dataset.autoplay !== 'true') return;
+        stopAuto();
+        timer = setInterval(flip, 5000);
+      }
+
+      function stopAuto() {
+        if (timer) { clearInterval(timer); timer = null; }
+      }
+
+      function restartAutoAfterIdle() {
+        if (idleTimer) clearTimeout(idleTimer);
+        idleTimer = setTimeout(startAuto, 10000);
+      }
+
+      // Initialize
+      setState('before');
+
+      // Toggle on click
+      if (toggle) {
+        toggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          flip();
+          stopAuto();
+          restartAutoAfterIdle();
+        });
+      }
+
+      // Also toggle on container tap (mobile)
+      container.addEventListener('click', function() {
+        flip();
+        stopAuto();
+        restartAutoAfterIdle();
+      });
+
+      // Start auto-play
+      startAuto();
+    });
+  });
+</script>
