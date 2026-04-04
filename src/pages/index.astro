@@ -3,10 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL;
 
 const projects = [
-  { title: '25UNION Fashion Film', tag: 'Fashion', vimeoId: '787859901', thumb: 'https://i.vimeocdn.com/video/1778649750-d_640' },
-  { title: 'ARI VILLOSO Wedding', tag: 'Campaigns', vimeoId: '900404433', thumb: 'https://i.vimeocdn.com/video/1778647385-d_640' },
+  { title: 'Fashion Film 2023', tag: 'Fashion', vimeoId: '787859901', thumb: 'https://i.vimeocdn.com/video/1778649750-d_640' },
+  { title: 'Wedding Campaign', tag: 'Campaigns', vimeoId: '900404433', thumb: 'https://i.vimeocdn.com/video/1778647385-d_640' },
   { title: 'Highlights Reel', tag: 'Showreel', vimeoId: '703936443', thumb: 'https://i.vimeocdn.com/video/1421715846-d_640' },
-  { title: 'LU Brand Film', tag: 'Fashion', vimeoId: '900446985', thumb: 'https://i.vimeocdn.com/video/1778722704-d_640' },
+  { title: 'Brand Campaign', tag: 'Fashion', vimeoId: '900446985', thumb: 'https://i.vimeocdn.com/video/1778722704-d_640' },
 ];
 ---
 
@@ -24,15 +24,15 @@ const projects = [
     <div class="relative text-center z-10 px-6">
       <h1 class="font-serif text-6xl md:text-8xl tracking-[0.15em] font-light mb-2">EMILIA</h1>
       <p class="text-sm md:text-base tracking-[0.4em] uppercase text-text-muted mb-8">SHAEMSHA</p>
-      <p class="text-text-muted text-sm md:text-base tracking-wide mb-2">Videographer · Photographer · Director</p>
-      <p class="text-text-muted/60 text-xs tracking-wider uppercase">Cyprus — Available Worldwide</p>
+      <p class="text-text-muted text-sm md:text-base tracking-wide mb-2">Cinematic fashion artist that feels your brand</p>
+      <p class="text-text-muted/60 text-xs tracking-wider uppercase">Videographer · Photographer · Director — Cyprus</p>
 
       <!-- CTA Blocks -->
       <div class="mt-16 flex flex-col sm:flex-row gap-4 justify-center">
         <a href={`${base}collaborate/`} class="group border border-border hover:border-accent px-8 py-4 text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-accent/10">
           <span class="text-text-muted group-hover:text-accent transition-colors">For Brands →</span>
         </a>
-        <a href={`${base}shop/`} class="group border border-border hover:border-accent px-8 py-4 text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-accent/10">
+        <a href={`${base}presets/`} class="group border border-border hover:border-accent px-8 py-4 text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-accent/10">
           <span class="text-text-muted group-hover:text-accent transition-colors">Presets & Tools →</span>
         </a>
         <a href={`${base}production/`} class="group border border-border hover:border-accent px-8 py-4 text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-accent/10">
@@ -90,8 +90,11 @@ const projects = [
   <!-- PRESET TEASER -->
   <section class="py-24 px-6 max-w-7xl mx-auto fade-in">
     <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="aspect-[4/3] rounded-lg overflow-hidden bg-bg-card">
-        <img src={`${base}images/hero.jpg`} alt="Preset preview" class="w-full h-full object-cover opacity-80" />
+      <div class="aspect-[4/3] rounded-lg overflow-hidden bg-bg-card flex items-center justify-center">
+        <div class="text-center p-8">
+          <div class="text-6xl mb-4 opacity-40">🎨</div>
+          <p class="text-text-muted text-sm">Before / After coming soon</p>
+        </div>
       </div>
       <div>
         <span class="text-xs tracking-[0.2em] uppercase text-accent font-mono">New</span>
@@ -100,7 +103,7 @@ const projects = [
           Professional Lightroom presets crafted for cinematic, fashion-forward editing.
           Transform your photos with one click.
         </p>
-        <a href={`${base}shop/`} class="inline-block border border-accent text-accent px-8 py-3 text-sm tracking-wider uppercase hover:bg-accent hover:text-bg transition-all duration-300">
+        <a href={`${base}presets/`} class="inline-block border border-accent text-accent px-8 py-3 text-sm tracking-wider uppercase hover:bg-accent hover:text-bg transition-all duration-300">
           Shop Presets →
         </a>
       </div>
@@ -113,8 +116,8 @@ const projects = [
       <div class="order-2 md:order-1">
         <h2 class="font-serif text-3xl md:text-4xl mb-4">About Emilia</h2>
         <p class="text-text-muted leading-relaxed mb-6">
-          Ukrainian-born videographer and photographer based in Cyprus, creating cinematic visual stories
-          for brands, hotels, and fashion campaigns worldwide.
+          Master's in audiovisual arts. 10+ years creating cinematic visual stories
+          for brands, hotels, and fashion campaigns — from concept to final cut, all in-house.
         </p>
         <a href={`${base}about/`} class="text-accent text-sm tracking-wider uppercase hover:text-accent-hover transition-colors">
           More About Me →
@@ -136,10 +139,10 @@ const projects = [
         </a>
       </div>
       <div class="grid grid-cols-3 md:grid-cols-6 gap-2">
-        {Array.from({ length: 6 }).map(() => (
-          <div class="aspect-square bg-bg-card rounded overflow-hidden">
-            <img src={`${base}images/hero.jpg`} alt="" class="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity duration-300" />
-          </div>
+        {Array.from({ length: 6 }).map((_, i) => (
+          <a href="https://instagram.com/shaemsha" target="_blank" class="aspect-square bg-bg-card rounded overflow-hidden flex items-center justify-center hover:bg-border/30 transition-colors duration-300">
+            <svg class="w-6 h-6 text-text-muted/30" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
         ))}
       </div>
     </div>
