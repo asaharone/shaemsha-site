@@ -1,0 +1,248 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import { presets, pricing, checkoutUrls, faqItems } from '../../data/presets';
+
+const base = import.meta.env.BASE_URL;
+const defaultPreset = presets[0];
+---
+
+<BaseLayout title="SHAEMSHA Presets 01 — Cinematic Lightroom Presets">
+
+  <!-- FIRST SCREEN: Everything needed for purchase -->
+  <section class="pt-24 pb-8 px-4 md:pt-32 md:pb-16">
+    <div class="max-w-[600px] mx-auto">
+
+      <!-- Header -->
+      <div class="text-center mb-4">
+        <h1 class="text-lg md:text-xl font-medium tracking-[3px] text-text">SHAEMSHA Presets 01</h1>
+        <p class="text-text-muted text-[10px] md:text-xs mt-1">7 presets · Lightroom Mobile & Desktop</p>
+      </div>
+
+      <!-- Main Before/After Photo -->
+      <div id="main-photo">
+        <BeforeAfter
+          beforeImage={defaultPreset.beforeImage}
+          afterImage={defaultPreset.afterImage}
+          presetName={defaultPreset.name}
+          autoPlay={true}
+        />
+      </div>
+
+      <!-- Preset Strip -->
+      <div class="flex gap-2 mt-3 overflow-x-auto pb-2 preset-scrollbar" id="preset-strip">
+        {presets.map((preset, i) => (
+          <button
+            class={`preset-thumb flex-shrink-0 w-[52px] h-[68px] rounded-md overflow-hidden relative transition-opacity ${i === 0 ? 'opacity-100 outline outline-2 outline-offset-2 outline-accent' : 'opacity-50'}`}
+            data-index={i}
+            data-before={preset.beforeImage}
+            data-after={preset.afterImage}
+            data-name={preset.name}
+            type="button"
+            aria-label={`Preview ${preset.name}`}
+          >
+            <img src={preset.afterImage} alt={preset.name} class="w-full h-full object-cover" loading="lazy" />
+            <span class="absolute bottom-1 left-0 right-0 text-center text-[5px] text-white font-medium tracking-wider drop-shadow-lg">{preset.name}</span>
+          </button>
+        ))}
+      </div>
+
+      <!-- Currency Toggle + Price + Buy -->
+      <div class="text-center mt-6 border-t border-border/50 pt-4">
+        <!-- Currency toggle -->
+        <div class="inline-flex gap-0.5 bg-bg-card rounded-full p-0.5 mb-3" id="currency-toggle">
+          <button
+            class="cur-btn px-4 py-1.5 rounded-full text-[10px] font-semibold transition-all bg-accent text-bg"
+            data-currency="usd"
+            type="button"
+          >USD</button>
+          <button
+            class="cur-btn px-4 py-1.5 rounded-full text-[10px] font-semibold transition-all text-text-muted"
+            data-currency="uah"
+            type="button"
+          >UAH</button>
+        </div>
+
+        <!-- Price -->
+        <div class="text-3xl font-bold text-accent" id="price-display">{pricing.usd.amount}</div>
+
+        <!-- Buy button -->
+        <a
+          id="buy-button"
+          href={checkoutUrls.usd}
+          target="_blank"
+          class="block mt-3 bg-accent text-bg font-bold py-4 rounded-xl text-xs tracking-[2px] uppercase hover:bg-accent-hover transition-colors"
+        >
+          BUY NOW
+        </a>
+
+        <!-- Trust badges -->
+        <div class="flex justify-center gap-4 mt-3 text-[9px] text-text-muted">
+          <span>✓ Instant email</span>
+          <span>✓ .dng + .xmp</span>
+          <span>✓ Mobile & Desktop</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="py-12 px-4 fade-in">
+    <div class="max-w-[600px] mx-auto">
+      <h2 class="text-accent text-[9px] tracking-[2px] uppercase font-mono mb-4">What's Included</h2>
+      <div class="space-y-3">
+        <div class="flex items-center gap-3 p-3 bg-bg-card rounded-lg">
+          <span class="text-accent text-sm">✓</span>
+          <div>
+            <div class="text-sm text-text">7 Lightroom Presets</div>
+            <div class="text-[10px] text-text-muted">.dng (Mobile) + .xmp (Desktop)</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 p-3 bg-bg-card rounded-lg">
+          <span class="text-accent text-sm">✓</span>
+          <div>
+            <div class="text-sm text-text">Installation Guide</div>
+            <div class="text-[10px] text-text-muted">Step-by-step for Mobile & Desktop</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 p-3 bg-bg-card rounded-lg">
+          <span class="text-accent text-sm">✓</span>
+          <div>
+            <div class="text-sm text-text">Instant Email Delivery</div>
+            <div class="text-[10px] text-text-muted">Download link sent to your email</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO INSTALL -->
+  <section class="py-12 px-4 fade-in">
+    <div class="max-w-[600px] mx-auto">
+      <h2 class="text-accent text-[9px] tracking-[2px] uppercase font-mono mb-4">How to Install</h2>
+      <div class="grid grid-cols-3 gap-3">
+        <div class="text-center p-3 bg-bg-card rounded-lg">
+          <div class="text-accent text-lg font-bold mb-1">1</div>
+          <div class="text-[10px] text-text-muted">Buy & receive email</div>
+        </div>
+        <div class="text-center p-3 bg-bg-card rounded-lg">
+          <div class="text-accent text-lg font-bold mb-1">2</div>
+          <div class="text-[10px] text-text-muted">Download .dng files</div>
+        </div>
+        <div class="text-center p-3 bg-bg-card rounded-lg">
+          <div class="text-accent text-lg font-bold mb-1">3</div>
+          <div class="text-[10px] text-text-muted">Import to Lightroom</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-12 px-4 fade-in">
+    <div class="max-w-[600px] mx-auto">
+      <h2 class="text-accent text-[9px] tracking-[2px] uppercase font-mono mb-4">FAQ</h2>
+      <div class="space-y-2">
+        {faqItems.map(item => (
+          <details class="group border border-border rounded-lg overflow-hidden">
+            <summary class="flex justify-between items-center px-4 py-3 cursor-pointer text-sm font-medium hover:bg-bg-card transition-colors">
+              {item.q}
+              <svg class="w-4 h-4 text-text-muted transition-transform group-open:rotate-45 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </summary>
+            <div class="px-4 pb-3 text-sm text-text-muted leading-relaxed">
+              {item.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SECOND CTA -->
+  <section class="py-12 px-4 border-t border-border fade-in">
+    <div class="max-w-[600px] mx-auto text-center">
+      <a
+        id="buy-button-bottom"
+        href={checkoutUrls.usd}
+        target="_blank"
+        class="block bg-accent text-bg font-bold py-4 rounded-xl text-xs tracking-[2px] uppercase hover:bg-accent-hover transition-colors"
+      >
+        BUY NOW — <span class="bottom-price">{pricing.usd.amount}</span>
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    var strip = document.getElementById('preset-strip');
+    var thumbs = strip ? strip.querySelectorAll('.preset-thumb') : [];
+    var container = document.querySelector('#main-photo .ba-container');
+
+    // --- Preset strip: switch main photo ---
+    thumbs.forEach(function(thumb) {
+      thumb.addEventListener('click', function() {
+        // Update active state
+        thumbs.forEach(function(t) {
+          t.classList.remove('opacity-100', 'outline', 'outline-2', 'outline-offset-2', 'outline-accent');
+          t.classList.add('opacity-50');
+        });
+        thumb.classList.remove('opacity-50');
+        thumb.classList.add('opacity-100', 'outline', 'outline-2', 'outline-offset-2', 'outline-accent');
+
+        // Swap images
+        if (container) {
+          var beforeImg = container.querySelector('.ba-img-before');
+          var afterImg = container.querySelector('.ba-img-after');
+          var label = container.querySelector('.ba-container > div:first-of-type span');
+
+          if (beforeImg) beforeImg.src = thumb.dataset.before;
+          if (afterImg) afterImg.src = thumb.dataset.after;
+          if (label) label.textContent = thumb.dataset.name;
+
+          // Reset to before state
+          container.setAttribute('data-state', 'before');
+        }
+      });
+    });
+
+    // --- Currency toggle ---
+    var curBtns = document.querySelectorAll('.cur-btn');
+    var priceDisplay = document.getElementById('price-display');
+    var buyBtn = document.getElementById('buy-button');
+    var buyBtnBottom = document.getElementById('buy-button-bottom');
+    var bottomPrice = document.querySelector('.bottom-price');
+
+    var priceData = {
+      usd: { amount: '$15.90', url: buyBtn ? buyBtn.href : '#' },
+      uah: { amount: '690₴', url: 'WORKER_URL/api/create-invoice' }
+    };
+
+    curBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var cur = btn.dataset.currency;
+
+        // Update button styles
+        curBtns.forEach(function(b) {
+          b.classList.remove('bg-accent', 'text-bg');
+          b.classList.add('text-text-muted');
+        });
+        btn.classList.add('bg-accent', 'text-bg');
+        btn.classList.remove('text-text-muted');
+
+        // Update price & URL
+        if (priceDisplay) priceDisplay.textContent = priceData[cur].amount;
+        if (buyBtn) buyBtn.href = priceData[cur].url;
+        if (buyBtnBottom) buyBtnBottom.href = priceData[cur].url;
+        if (bottomPrice) bottomPrice.textContent = priceData[cur].amount;
+      });
+    });
+  });
+</script>
+
+<style>
+  .preset-scrollbar::-webkit-scrollbar { height: 0; }
+  .preset-scrollbar { scrollbar-width: none; }
+</style>
