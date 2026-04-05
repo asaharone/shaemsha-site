@@ -1,0 +1,38 @@
+---
+interface Props {
+  quote: string;
+  vimeoId: string;
+}
+
+const { quote, vimeoId } = Astro.props;
+const vimeoUrl = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0`;
+---
+
+<section class="pt-24 pb-6 md:pt-28 md:pb-8 px-4">
+  <div class="max-w-[600px] mx-auto">
+    <!-- Quote text -->
+    <p class="font-serif text-base md:text-lg italic leading-relaxed text-text text-center mb-5 max-w-[520px] mx-auto">
+      {quote}
+    </p>
+
+    <!-- Vimeo video, 16:9 -->
+    <div class="relative rounded-xl overflow-hidden" style="padding:56.25% 0 0 0">
+      <iframe
+        src={vimeoUrl}
+        style="position:absolute;top:0;left:0;width:100%;height:100%;"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+        title="SHAEMSHA Showreel"
+        loading="eager"
+      ></iframe>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="flex justify-center mt-4 opacity-40">
+      <svg class="w-4 h-4 text-text-muted animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7"/>
+      </svg>
+    </div>
+  </div>
+</section>
