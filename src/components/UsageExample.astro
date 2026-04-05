@@ -1,0 +1,36 @@
+---
+interface Props {
+  id: string;
+  name: string;
+  description: string;
+  photos: string[]; // Expects exactly 3 photos
+}
+
+const { id, name, description, photos } = Astro.props;
+---
+
+<div id={`preset-${id}`} class="py-8 border-b border-border last:border-b-0 fade-in">
+  <!-- Preset name -->
+  <h3 class="font-serif text-2xl md:text-3xl text-accent text-center mb-4 tracking-[2px]">
+    {name}
+  </h3>
+
+  <!-- 3 photos in a row -->
+  <div class="grid grid-cols-3 gap-1.5 md:gap-2 mb-4">
+    {photos.slice(0, 3).map((photo, i) => (
+      <div class="aspect-[3/4] rounded-md overflow-hidden bg-bg-card">
+        <img
+          src={photo}
+          alt={`${name} example ${i + 1}`}
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    ))}
+  </div>
+
+  <!-- Description -->
+  <p class="text-sm text-text-muted leading-relaxed text-center max-w-[480px] mx-auto">
+    {description}
+  </p>
+</div>
