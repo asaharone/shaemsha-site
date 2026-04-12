@@ -200,7 +200,7 @@ const orderedPresets = usageExamplesOrder
       ))}
 
       <!-- BUY NOW at end of Usage Examples -->
-      <div class="mt-8 pt-8 border-t border-border text-center">
+      <div class="mt-8 pt-8 text-center">
         <a id="buy-button-usage" href={checkoutUrls.usd} target="_blank"
            class="block bg-accent text-bg font-bold py-4 rounded-xl text-xs tracking-[2px] uppercase hover:bg-accent-hover transition-colors">
           BUY NOW — <span class="usage-price">{pricing.usd.amount}</span>
@@ -212,7 +212,8 @@ const orderedPresets = usageExamplesOrder
   <!-- 7. FAQ -->
   <section class="py-12 px-4 fade-in">
     <div class="max-w-[600px] mx-auto">
-      <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-4">FAQ</h2>
+      <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-2">FAQ</h2>
+      <p class="font-serif text-xl md:text-2xl text-text font-medium mb-6">Got questions? We've got answers</p>
       <div class="space-y-2">
         {faqItems.map(item => (
           <details class="group border border-border rounded-lg overflow-hidden">
