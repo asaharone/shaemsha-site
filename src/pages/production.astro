@@ -35,7 +35,7 @@ const verticalFilms = [
     <!-- Text below -->
     <div class="max-w-4xl mx-auto text-center py-16 px-6">
       <p class="text-xs tracking-[0.3em] uppercase text-accent font-mono mb-4">SHAEMSHA PRODUCTION</p>
-      <h1 class="font-serif text-5xl md:text-7xl mb-4 uppercase tracking-[3px] font-medium">EMILIA SHAKH</h1>
+      <h1 class="font-serif font-medium uppercase tracking-[3px] text-5xl md:text-7xl mb-4">EMILIA SHAKH</h1>
       <p class="text-text-muted mb-8">Director · Cinematographer · Editor</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="#inquiry" class="bg-accent text-bg font-semibold px-8 py-4 text-sm tracking-wider uppercase hover:bg-accent-hover transition-all duration-300 rounded-lg">
@@ -52,7 +52,7 @@ const verticalFilms = [
   <section class="py-24 px-6 border-t border-border fade-in">
     <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
       <div>
-        <p class="font-serif text-2xl md:text-3xl italic text-accent/80 leading-relaxed">
+        <p class="font-serif italic text-2xl md:text-3xl text-accent/80 leading-relaxed">
           "I believe every brand has a story worth filming. My job is to find the visual language
           that makes it unforgettable."
         </p>
@@ -75,7 +75,10 @@ const verticalFilms = [
   <section class="py-24 px-6 fade-in">
     <div class="max-w-5xl mx-auto">
       <div class="flex justify-between items-end mb-8">
-        <h2 class="font-serif text-3xl font-medium uppercase tracking-[2px]">Highlights</h2>
+        <div>
+          <p class="text-accent text-xs tracking-[2px] uppercase font-mono mb-2">Highlights</p>
+          <h2 class="font-serif text-xl md:text-2xl text-text font-medium">Selected Work</h2>
+        </div>
         <a href="https://vimeo.com/user73530306" target="_blank" rel="noopener noreferrer" class="text-sm text-accent hover:text-accent-hover transition-colors">
           View on Vimeo →
         </a>
@@ -97,8 +100,11 @@ const verticalFilms = [
   <!-- FASHION FILMS — LANDSCAPE -->
   <section class="py-24 px-6 border-t border-border fade-in">
     <div class="max-w-6xl mx-auto">
-      <h2 class="font-serif text-3xl text-center mb-4 font-medium uppercase tracking-[2px]">Fashion Films & Commercial Work</h2>
-      <p class="text-text-muted text-center mb-12">All content — directing, shooting, editing — by Emilia Shakh</p>
+      <div class="text-center mb-12">
+        <p class="text-accent text-xs tracking-[2px] uppercase font-mono mb-2">Fashion Films</p>
+        <h2 class="font-serif text-xl md:text-2xl text-text font-medium">Commercial Work</h2>
+        <p class="text-text-muted mt-3">All content — directing, shooting, editing — by Emilia Shakh</p>
+      </div>
 
       <div class="grid md:grid-cols-2 gap-8">
         {landscapeFilms.map(film => (
@@ -126,8 +132,8 @@ const verticalFilms = [
     <div class="max-w-6xl mx-auto px-6 mb-8">
       <div class="flex justify-between items-end">
         <div>
-          <span class="text-xs tracking-[0.2em] uppercase text-accent font-mono">Vertical Content</span>
-          <h2 class="font-serif text-2xl mt-1 font-medium uppercase tracking-[2px]">Mobile-First Films</h2>
+          <p class="text-accent text-xs tracking-[2px] uppercase font-mono mb-2">Vertical Content</p>
+          <h2 class="font-serif text-xl md:text-2xl text-text font-medium">Mobile-First Films</h2>
         </div>
         <div class="hidden md:flex gap-2">
           <button id="prod-prev" class="w-10 h-10 rounded-full border border-border flex items-center justify-center text-text-muted hover:border-accent hover:text-accent transition-colors" aria-label="Previous">
@@ -171,7 +177,10 @@ const verticalFilms = [
   <!-- SERVICES -->
   <section class="py-24 px-6 border-t border-border fade-in">
     <div class="max-w-5xl mx-auto">
-      <h2 class="font-serif text-3xl text-center mb-12 font-medium uppercase tracking-[2px]">Services</h2>
+      <div class="text-center mb-12">
+        <p class="text-accent text-xs tracking-[2px] uppercase font-mono mb-2">Services</p>
+        <h2 class="font-serif text-xl md:text-2xl text-text font-medium">What I Offer</h2>
+      </div>
       <div class="grid md:grid-cols-3 gap-6">
         {[
           { icon: '🎬', title: 'Commercial Direction', desc: 'Brand films, product videos, campaign visuals' },
@@ -194,7 +203,10 @@ const verticalFilms = [
   <!-- PROCESS -->
   <section class="py-24 px-6 fade-in">
     <div class="max-w-4xl mx-auto">
-      <h2 class="font-serif text-3xl text-center mb-12 font-medium uppercase tracking-[2px]">Process</h2>
+      <div class="text-center mb-12">
+        <p class="text-accent text-xs tracking-[2px] uppercase font-mono mb-2">Process</p>
+        <h2 class="font-serif text-xl md:text-2xl text-text font-medium">How We Work</h2>
+      </div>
       <div class="grid md:grid-cols-5 gap-6">
         {[
           { step: '01', title: 'Brief', desc: 'Discovery call & understanding your vision' },
@@ -216,8 +228,11 @@ const verticalFilms = [
   <!-- INQUIRY FORM -->
   <section class="py-24 px-6 border-t border-border fade-in" id="inquiry">
     <div class="max-w-2xl mx-auto">
-      <h2 class="font-serif text-3xl text-center mb-4 font-medium uppercase tracking-[2px]">Start a Conversation</h2>
-      <p class="text-text-muted text-center mb-12">Tell me about your project and let's bring it to life.</p>
+      <div class="text-center mb-12">
+        <p class="text-accent text-xs tracking-[2px] uppercase font-mono mb-2">Inquiries</p>
+        <h2 class="font-serif text-xl md:text-2xl text-text font-medium">Start a Conversation</h2>
+        <p class="text-text-muted mt-3">Tell me about your project and let's bring it to life.</p>
+      </div>
 
       <form action="https://formspree.io/f/placeholder" method="POST" class="space-y-6">
         <div class="grid md:grid-cols-2 gap-6">
