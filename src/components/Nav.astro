@@ -35,10 +35,9 @@ const links = [
         Contact
       </a>
       <!-- Language Toggle -->
-      <div class="flex items-center gap-1 ml-2" id="lang-toggle">
-        <button class="lang-btn text-xs font-mono tracking-wider cursor-pointer px-1.5 py-0.5 rounded transition-colors text-accent" data-lang="ua">UA</button>
-        <span class="text-text-muted/30 text-xs">/</span>
-        <button class="lang-btn text-xs font-mono tracking-wider cursor-pointer px-1.5 py-0.5 rounded transition-colors text-text-muted" data-lang="en">EN</button>
+      <div class="flex items-center gap-0.5 ml-3 bg-bg-card rounded-full p-0.5" id="lang-toggle">
+        <button class="lang-btn text-xs font-mono tracking-wider cursor-pointer px-3 py-1 rounded-full transition-all bg-accent text-bg font-semibold" data-lang="ua">UA</button>
+        <button class="lang-btn text-xs font-mono tracking-wider cursor-pointer px-3 py-1 rounded-full transition-all text-text-muted" data-lang="en">EN</button>
       </div>
     </div>
 
@@ -139,10 +138,10 @@ const links = [
     function setActiveLang(lang) {
       langBtns.forEach(function(btn) {
         if (btn.dataset.lang === lang) {
-          btn.classList.add('text-accent');
+          btn.classList.add('bg-accent', 'text-bg', 'font-semibold');
           btn.classList.remove('text-text-muted');
         } else {
-          btn.classList.remove('text-accent');
+          btn.classList.remove('bg-accent', 'text-bg', 'font-semibold');
           btn.classList.add('text-text-muted');
         }
       });
