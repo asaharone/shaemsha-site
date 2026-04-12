@@ -41,12 +41,18 @@ const links = [
       </div>
     </div>
 
-    <!-- Mobile Hamburger -->
-    <button id="menu-toggle" class="md:hidden text-text cursor-pointer" aria-label="Open menu">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
+    <!-- Mobile: Lang Toggle + Hamburger -->
+    <div class="flex items-center gap-3 md:hidden">
+      <div class="flex items-center gap-0.5 bg-bg-card rounded-full p-0.5">
+        <button class="lang-btn text-[10px] font-mono tracking-wider cursor-pointer px-2 py-0.5 rounded-full transition-all bg-accent text-bg font-semibold" data-lang="ua">UA</button>
+        <button class="lang-btn text-[10px] font-mono tracking-wider cursor-pointer px-2 py-0.5 rounded-full transition-all text-text-muted" data-lang="en">EN</button>
+      </div>
+      <button id="menu-toggle" class="text-text cursor-pointer" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
   </div>
 </nav>
 
