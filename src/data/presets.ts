@@ -88,7 +88,7 @@ export const pricing = {
 
 // Replace with real URLs after creating accounts
 export const checkoutUrls = {
-  usd: 'https://shaemsha.lemonsqueezy.com/checkout/buy/PLACEHOLDER',
+  usd: 'https://shaemsha.lemonsqueezy.com/checkout/buy/7554b2dc-08cf-4587-a99d-c8188aefb70f',
   uah: 'WORKER_URL/api/create-invoice',
 };
 

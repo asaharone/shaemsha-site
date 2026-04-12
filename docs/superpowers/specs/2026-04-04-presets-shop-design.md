@@ -26,7 +26,7 @@ Each preset has a before/after photo pair located in `public/images/presets/`:
 | FASHION | fashoin_before.jpg | fashion_after.jpg |
 | ART NOIR | ART_noir_before.JPG | art_noir_after.JPG |
 | FILM HAZE 35mm | film_haze_before.jpg | film_haze_after.jpg |
-| HONEY | honey_before.JPG | IMG_6605.JPG (rename to honey_after.JPG) |
+| HONEY | honey_before.JPG | honey_after.JPG |
 
 Source photos: `/Users/macos/Documents/SHAEMSHA/photo_for_web_shaemsha/`
 Copy to: `public/images/presets/` (optimized for web)

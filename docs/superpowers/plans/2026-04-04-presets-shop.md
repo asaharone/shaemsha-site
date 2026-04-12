@@ -38,7 +38,7 @@ cp /Users/macos/Documents/SHAEMSHA/photo_for_web_shaemsha/art_noir_after.JPG pub
 cp /Users/macos/Documents/SHAEMSHA/photo_for_web_shaemsha/film_haze_before.jpg public/images/presets/
 cp /Users/macos/Documents/SHAEMSHA/photo_for_web_shaemsha/film_haze_after.jpg public/images/presets/
 cp /Users/macos/Documents/SHAEMSHA/photo_for_web_shaemsha/honey_before.JPG public/images/presets/honey_before.jpg
-cp /Users/macos/Documents/SHAEMSHA/photo_for_web_shaemsha/IMG_6605.JPG public/images/presets/honey_after.jpg
+cp /Users/macos/Documents/SHAEMSHA/photo_for_web_shaemsha/honey_after.JPG public/images/presets/honey_after.jpg
 ```
 
 Note: Normalize all filenames to lowercase with consistent naming pattern: `{preset_id}_before.jpg` / `{preset_id}_after.jpg`.
