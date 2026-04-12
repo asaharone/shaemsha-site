@@ -118,92 +118,62 @@ const orderedPresets = usageExamplesOrder
   </section>
 
   <!-- 4. HOW IT WORKS -->
-  <section class="py-12 px-4 fade-in">
-    <div class="max-w-[600px] mx-auto">
-      <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-8 text-center">{pc.howItWorks.label}</h2>
+  <section class="py-16 px-4 fade-in">
+    <div class="max-w-[480px] mx-auto">
+      <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-10 text-center">{pc.howItWorks.label}</h2>
 
-      <div class="flex items-start gap-4 md:gap-6">
-        <!-- Step 1 -->
-        <div class="flex-1 text-center">
-          <div class="w-12 h-12 mx-auto mb-3 rounded-full border border-border flex items-center justify-center">
-            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      <!-- Vertical timeline -->
+      <div class="relative pl-8 border-l border-border/50 space-y-8">
+
+        <!-- Step 1: Buy -->
+        <div class="relative">
+          <div class="absolute -left-[41px] w-5 h-5 rounded-full bg-bg border-2 border-accent flex items-center justify-center">
+            <span class="text-[9px] text-accent font-mono font-bold">1</span>
           </div>
-          <p class="text-xs text-text font-medium mb-1">Buy</p>
-          <p class="text-xs text-text-muted">Instant email with download link</p>
+          <h3 class="text-base text-text font-medium mb-1">Easy checkout</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Pay with card in a few taps. You'll receive the preset files to your email instantly.</p>
         </div>
 
-        <!-- Arrow -->
-        <div class="pt-5 text-border">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"/></svg>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="flex-1 text-center">
-          <div class="w-12 h-12 mx-auto mb-3 rounded-full border border-border flex items-center justify-center">
-            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        <!-- Step 2: Download -->
+        <div class="relative">
+          <div class="absolute -left-[41px] w-5 h-5 rounded-full bg-bg border-2 border-accent flex items-center justify-center">
+            <span class="text-[9px] text-accent font-mono font-bold">2</span>
           </div>
-          <p class="text-xs text-text font-medium mb-1">Download</p>
-          <p class="text-xs text-text-muted">.dng + .xmp files</p>
+          <h3 class="text-base text-text font-medium mb-1">Get your files</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Download .dng for Lightroom Mobile or .xmp for Desktop — both included in the pack.</p>
         </div>
 
-        <!-- Arrow -->
-        <div class="pt-5 text-border">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"/></svg>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="flex-1 text-center">
-          <div class="w-12 h-12 mx-auto mb-3 rounded-full border border-border flex items-center justify-center">
-            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+        <!-- Step 3: Install Lightroom -->
+        <div class="relative">
+          <div class="absolute -left-[41px] w-5 h-5 rounded-full bg-bg border-2 border-accent flex items-center justify-center">
+            <span class="text-[9px] text-accent font-mono font-bold">3</span>
           </div>
-          <p class="text-xs text-text font-medium mb-1">Apply</p>
-          <p class="text-xs text-text-muted">One tap in Lightroom</p>
+          <h3 class="text-base text-text font-medium mb-1">Open Lightroom</h3>
+          <p class="text-sm text-text-muted leading-relaxed">You'll need the free Lightroom app (iOS or Android). Import the .dng files into the app.</p>
         </div>
+
+        <!-- Step 4: Import presets -->
+        <div class="relative">
+          <div class="absolute -left-[41px] w-5 h-5 rounded-full bg-bg border-2 border-accent flex items-center justify-center">
+            <span class="text-[9px] text-accent font-mono font-bold">4</span>
+          </div>
+          <h3 class="text-base text-text font-medium mb-1">Import & save as preset</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Open the .dng photo → tap ••• → "Create Preset" → name it and save. Done once, stays forever.</p>
+        </div>
+
+        <!-- Step 5: Use -->
+        <div class="relative">
+          <div class="absolute -left-[41px] w-5 h-5 rounded-full bg-bg border-2 border-accent flex items-center justify-center">
+            <span class="text-[9px] text-accent font-mono font-bold">5</span>
+          </div>
+          <h3 class="text-base text-text font-medium mb-1">Transform your photos</h3>
+          <p class="text-sm text-text-muted leading-relaxed">Apply my cinematic presets to your own photos with one tap. Make every frame feel like a story.</p>
+        </div>
+
       </div>
 
-      <!-- Detailed install instructions (expandable) -->
-      <div class="mt-8 space-y-2">
-        <details class="group border border-border rounded-lg overflow-hidden">
-          <summary class="flex justify-between items-center px-4 py-3 cursor-pointer text-sm font-medium hover:bg-bg-card transition-colors">
-            DNG — Lightroom Mobile
-            <svg class="w-4 h-4 text-text-muted transition-transform group-open:rotate-45 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-            </svg>
-          </summary>
-          <div class="px-4 pb-4 text-sm text-text-muted leading-relaxed">
-            <ol class="list-decimal list-inside space-y-1.5 mt-1">
-              <li>Save the .dng file to your phone (Save to Files)</li>
-              <li>Open Lightroom Mobile</li>
-              <li>Tap "Add Photos" and import the .dng file</li>
-              <li>Open the imported .dng inside Lightroom</li>
-              <li>Tap ••• (top right) → "Create Preset"</li>
-              <li>Name it and save</li>
-            </ol>
-            <p class="mt-3 text-xs text-text-muted/70">The preset will appear in your Presets tab — apply it to any photo.</p>
-          </div>
-        </details>
-
-        <details class="group border border-border rounded-lg overflow-hidden">
-          <summary class="flex justify-between items-center px-4 py-3 cursor-pointer text-sm font-medium hover:bg-bg-card transition-colors">
-            XMP — Lightroom Desktop
-            <svg class="w-4 h-4 text-text-muted transition-transform group-open:rotate-45 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-            </svg>
-          </summary>
-          <div class="px-4 pb-4 text-sm text-text-muted leading-relaxed">
-            <ol class="list-decimal list-inside space-y-1.5 mt-1">
-              <li>Open Lightroom Classic or Lightroom CC</li>
-              <li>Go to the Presets section</li>
-              <li>Choose "Import"</li>
-              <li>Select the .xmp file</li>
-              <li>The preset appears in your preset list</li>
-            </ol>
-          </div>
-        </details>
-      </div>
-
-      <p class="mt-4 text-xs text-text-muted/60 text-center leading-relaxed">
-        Every photo is different. After applying a preset, you may need to slightly adjust Exposure, Temp, or Tint to fit your specific photo.
+      <p class="mt-8 text-xs text-text-muted/60 text-center leading-relaxed">
+        Every photo is unique. Feel free to tweak Exposure, Temp, or Tint after applying — that's how you make it truly yours.
       </p>
 
     </div>
