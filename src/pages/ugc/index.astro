@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="UGC · PR · Content — Emilia Shaemsha">
+
+  <!-- Hero (same image as homepage card, but in COLOR) -->
+  <section class="relative pt-20">
+    <div class="max-w-6xl mx-auto px-6 pt-8">
+      <div class="aspect-[21/9] rounded-xl overflow-hidden">
+        <img src={`${base}images/hero.jpg`} alt="UGC and Content Creation" class="w-full h-full object-cover" />
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto text-center py-16 px-6">
+      <span class="text-xs tracking-[0.2em] uppercase text-accent font-mono">UGC · PR · Content</span>
+      <h1 class="font-serif text-5xl md:text-7xl mt-4 mb-6">Content Creation</h1>
+      <p class="text-text-muted text-lg max-w-2xl mx-auto leading-relaxed">
+        Cinematic content, brand storytelling, and influencer collaborations.
+        Professional-grade UGC shot on cinema cameras with editorial post-production.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+        <a href="https://t.me/shaemsha" target="_blank" rel="noopener noreferrer"
+           class="bg-accent text-bg font-semibold px-8 py-4 text-sm tracking-wider uppercase hover:bg-accent-hover transition-colors rounded-lg cursor-pointer">
+          Get in Touch
+        </a>
+        <a href="https://instagram.com/shaemsha" target="_blank" rel="noopener noreferrer"
+           class="border border-border text-text px-8 py-4 text-sm tracking-wider uppercase hover:border-accent hover:text-accent transition-colors rounded-lg cursor-pointer">
+          View Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
