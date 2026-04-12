@@ -27,7 +27,7 @@ const orderedPresets = usageExamplesOrder
 
       <!-- Header -->
       <div class="text-center mb-4">
-        <h1 class="font-serif font-medium uppercase tracking-[3px] text-2xl md:text-3xl text-text">SHAEMSHA Presets <span class="font-sans">01</span></h1>
+        <h1 class="font-serif font-medium tracking-[1px] text-2xl md:text-3xl text-text">Shaemsha Lightroom Presets — Pack <span class="font-sans">01</span></h1>
         <p class="text-text-muted text-xs md:text-xs mt-1">7 presets · Lightroom Mobile & Desktop</p>
       </div>
 
@@ -160,6 +160,51 @@ const orderedPresets = usageExamplesOrder
           <p class="text-xs text-text-muted">One tap in Lightroom</p>
         </div>
       </div>
+
+      <!-- Detailed install instructions (expandable) -->
+      <div class="mt-8 space-y-2">
+        <details class="group border border-border rounded-lg overflow-hidden">
+          <summary class="flex justify-between items-center px-4 py-3 cursor-pointer text-sm font-medium hover:bg-bg-card transition-colors">
+            DNG — Lightroom Mobile
+            <svg class="w-4 h-4 text-text-muted transition-transform group-open:rotate-45 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-text-muted leading-relaxed">
+            <ol class="list-decimal list-inside space-y-1.5 mt-1">
+              <li>Save the .dng file to your phone (Save to Files)</li>
+              <li>Open Lightroom Mobile</li>
+              <li>Tap "Add Photos" and import the .dng file</li>
+              <li>Open the imported .dng inside Lightroom</li>
+              <li>Tap ••• (top right) → "Create Preset"</li>
+              <li>Name it and save</li>
+            </ol>
+            <p class="mt-3 text-xs text-text-muted/70">The preset will appear in your Presets tab — apply it to any photo.</p>
+          </div>
+        </details>
+
+        <details class="group border border-border rounded-lg overflow-hidden">
+          <summary class="flex justify-between items-center px-4 py-3 cursor-pointer text-sm font-medium hover:bg-bg-card transition-colors">
+            XMP — Lightroom Desktop
+            <svg class="w-4 h-4 text-text-muted transition-transform group-open:rotate-45 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-text-muted leading-relaxed">
+            <ol class="list-decimal list-inside space-y-1.5 mt-1">
+              <li>Open Lightroom Classic or Lightroom CC</li>
+              <li>Go to the Presets section</li>
+              <li>Choose "Import"</li>
+              <li>Select the .xmp file</li>
+              <li>The preset appears in your preset list</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <p class="mt-4 text-xs text-text-muted/60 text-center leading-relaxed">
+        Every photo is different. After applying a preset, you may need to slightly adjust Exposure, Temp, or Tint to fit your specific photo.
+      </p>
 
     </div>
   </section>
