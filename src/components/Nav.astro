@@ -34,6 +34,12 @@ const links = [
       >
         Contact
       </a>
+      <!-- Language Toggle -->
+      <div class="flex items-center gap-1 ml-2" id="lang-toggle">
+        <button class="lang-btn text-xs font-mono tracking-wider cursor-pointer px-1.5 py-0.5 rounded transition-colors text-accent" data-lang="ua">UA</button>
+        <span class="text-text-muted/30 text-xs">/</span>
+        <button class="lang-btn text-xs font-mono tracking-wider cursor-pointer px-1.5 py-0.5 rounded transition-colors text-text-muted" data-lang="en">EN</button>
+      </div>
     </div>
 
     <!-- Mobile Hamburger -->
@@ -124,6 +130,32 @@ const links = [
     closeBtn.addEventListener('click', closeMenu);
     menu.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', closeMenu);
+    });
+
+    // Language toggle
+    var langBtns = document.querySelectorAll('.lang-btn');
+    var saved = localStorage.getItem('shaemsha-lang') || 'ua';
+
+    function setActiveLang(lang) {
+      langBtns.forEach(function(btn) {
+        if (btn.dataset.lang === lang) {
+          btn.classList.add('text-accent');
+          btn.classList.remove('text-text-muted');
+        } else {
+          btn.classList.remove('text-accent');
+          btn.classList.add('text-text-muted');
+        }
+      });
+      window.dispatchEvent(new CustomEvent('lang-change', { detail: lang }));
+    }
+
+    setActiveLang(saved);
+
+    langBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        setActiveLang(btn.dataset.lang);
+        localStorage.setItem('shaemsha-lang', btn.dataset.lang);
+      });
     });
   });
 </script>

@@ -6,7 +6,8 @@ const cards = [
   {
     href: `${base}ugc/`,
     title: 'UGC · PR · Content',
-    description: 'Cinematic content, brand storytelling, and influencer collaborations',
+    desc_en: 'Cinematic content, brand storytelling, and influencer collaborations',
+    desc_ua: 'Кінематографічний контент, бренд-сторітелінг та колаборації з інфлюенсерами',
     image: `${base}images/hero.jpg`,
     cta: 'See Formats',
     span: false,
@@ -14,7 +15,8 @@ const cards = [
   {
     href: `${base}production/`,
     title: 'Video Production',
-    description: 'Commercials, brand films, and fashion campaigns',
+    desc_en: 'Commercials, brand films, and fashion campaigns',
+    desc_ua: 'Комерційне відео, бренд-фільми та fashion кампанії',
     image: `${base}images/hero.jpg`,
     cta: 'Learn More',
     span: false,
@@ -22,7 +24,8 @@ const cards = [
   {
     href: `${base}presets/`,
     title: 'Presets',
-    description: 'Professional Lightroom presets for cinematic color grading',
+    desc_en: 'Professional Lightroom presets for cinematic color grading',
+    desc_ua: 'Професійні пресети для кінематографічної колірної обробки',
     image: `${base}images/presets/nude_after.jpg`,
     cta: 'Shop Presets',
     span: true,
@@ -32,13 +35,13 @@ const cards = [
 
 <BaseLayout title="EMILIA SHAEMSHA — Videographer · Photographer · Director">
 
-  <section class="pt-20 md:pt-24 px-2 md:px-4 pb-2 md:pb-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+  <section class="pt-16 md:pt-20 px-2 md:px-4 pb-2 md:pb-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-1.5 md:gap-3">
       {cards.map(card => (
         <a
           href={card.href}
           class={`group relative overflow-hidden rounded-xl cursor-pointer ${
-            card.span ? 'md:col-span-2 min-h-[35vh] md:min-h-[35vh]' : 'min-h-[40vh] md:min-h-[50vh]'
+            card.span ? 'md:col-span-2 min-h-[28vh] md:min-h-[30vh]' : 'min-h-[30vh] md:min-h-[45vh]'
           }`}
         >
           <!-- B&W Background Image -->
@@ -53,12 +56,13 @@ const cards = [
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
           <!-- Content -->
-          <div class="absolute bottom-0 left-0 right-0 p-6 md:p-10">
-            <h2 class="font-serif text-2xl md:text-4xl text-white tracking-[3px] mb-2 uppercase font-medium">
+          <div class="absolute bottom-0 left-0 right-0 p-5 md:p-10">
+            <h2 class="font-serif text-2xl md:text-4xl text-white tracking-[3px] mb-1.5 uppercase font-bold">
               {card.title}
             </h2>
-            <p class="font-serif text-sm md:text-base text-white/80 italic mb-6 max-w-lg">
-              {card.description}
+            <p class="font-serif text-sm md:text-base text-white/90 italic font-medium mb-4 max-w-lg lang-desc">
+              <span class="desc-ua">{card.desc_ua}</span>
+              <span class="desc-en hidden">{card.desc_en}</span>
             </p>
             <span class="inline-block bg-accent text-bg px-8 py-3 text-xs font-bold tracking-[2px] uppercase rounded-lg group-hover:bg-accent-hover transition-all duration-300">
               {card.cta}
@@ -70,3 +74,27 @@ const cards = [
   </section>
 
 </BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Language toggle sync
+    function setLang(lang) {
+      document.querySelectorAll('.desc-ua').forEach(function(el) {
+        el.classList.toggle('hidden', lang !== 'ua');
+      });
+      document.querySelectorAll('.desc-en').forEach(function(el) {
+        el.classList.toggle('hidden', lang !== 'en');
+      });
+      localStorage.setItem('shaemsha-lang', lang);
+    }
+
+    // Check saved language
+    var saved = localStorage.getItem('shaemsha-lang') || 'ua';
+    setLang(saved);
+
+    // Listen for lang toggle events from nav
+    window.addEventListener('lang-change', function(e) {
+      setLang(e.detail);
+    });
+  });
+</script>
