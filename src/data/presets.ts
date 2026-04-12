@@ -59,7 +59,7 @@ export const presets: Preset[] = [
   },
   {
     id: 'film-haze',
-    name: 'FILM HAZE 35mm',
+    name: 'FILM HAZE',
     beforeImage: `${base}images/presets/film_haze_before.jpg`,
     afterImage: `${base}images/presets/film_haze_after.jpg`,
     description: 'For photos with a film-like haze, soft glow, and vintage mood. Ideal for bright outdoor shots when you want to add more atmosphere and a 35 mm feel.',
