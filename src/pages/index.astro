@@ -2,155 +2,68 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL;
 
-const projects = [
-  { title: 'Fashion Film 2023', tag: 'Fashion', vimeoId: '787859901', thumb: 'https://i.vimeocdn.com/video/1778649750-d_640' },
-  { title: 'Wedding Campaign', tag: 'Campaigns', vimeoId: '900404433', thumb: 'https://i.vimeocdn.com/video/1778647385-d_640' },
-  { title: 'Highlights Reel', tag: 'Showreel', vimeoId: '703936443', thumb: 'https://i.vimeocdn.com/video/1421715846-d_640' },
-  { title: 'Brand Campaign', tag: 'Fashion', vimeoId: '900446985', thumb: 'https://i.vimeocdn.com/video/1778722704-d_640' },
+const cards = [
+  {
+    href: `${base}ugc/`,
+    title: 'UGC · PR · Content',
+    description: 'Cinematic content, brand storytelling, and influencer collaborations',
+    image: `${base}images/hero.jpg`,
+    span: false,
+  },
+  {
+    href: `${base}production/`,
+    title: 'Video Production',
+    description: 'Commercials, brand films, and fashion campaigns',
+    image: `${base}images/hero.jpg`,
+    span: false,
+  },
+  {
+    href: `${base}presets/`,
+    title: 'Presets',
+    description: 'Professional Lightroom presets for cinematic color grading',
+    image: `${base}images/presets/nude_after.jpg`,
+    span: true,
+  },
 ];
 ---
 
 <BaseLayout title="EMILIA SHAEMSHA — Videographer · Photographer · Director">
 
-  <!-- HERO -->
-  <section class="relative h-screen flex items-center justify-center overflow-hidden">
-    <!-- Background Image -->
-    <div class="absolute inset-0">
-      <img src={`${base}images/hero.jpg`} alt="" class="w-full h-full object-cover opacity-40" />
-      <div class="absolute inset-0 bg-gradient-to-b from-bg/60 via-bg/30 to-bg"></div>
-    </div>
+  <section class="pt-20 md:pt-24 px-2 md:px-4 pb-2 md:pb-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+      {cards.map(card => (
+        <a
+          href={card.href}
+          class={`group relative overflow-hidden rounded-xl cursor-pointer ${
+            card.span ? 'md:col-span-2 min-h-[35vh] md:min-h-[35vh]' : 'min-h-[40vh] md:min-h-[50vh]'
+          }`}
+        >
+          <!-- B&W Background Image -->
+          <img
+            src={card.image}
+            alt=""
+            class="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+            loading={card.span ? 'lazy' : 'eager'}
+          />
 
-    <!-- Content -->
-    <div class="relative text-center z-10 px-6">
-      <h1 class="font-serif text-6xl md:text-8xl tracking-[0.15em] font-light mb-2">EMILIA</h1>
-      <p class="text-sm md:text-base tracking-[0.4em] uppercase text-text-muted mb-8">SHAEMSHA</p>
-      <p class="text-text-muted text-sm md:text-base tracking-wide mb-2">Cinematic fashion artist that feels your brand</p>
-      <p class="text-text-muted/60 text-xs tracking-wider uppercase">Videographer · Photographer · Director — Cyprus</p>
+          <!-- Dark Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-      <!-- CTA Blocks -->
-      <div class="mt-16 flex flex-col sm:flex-row gap-4 justify-center">
-        <a href={`${base}collaborate/`} class="group border border-border hover:border-accent px-8 py-4 text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-accent/10">
-          <span class="text-text-muted group-hover:text-accent transition-colors">For Brands →</span>
-        </a>
-        <a href={`${base}presets/`} class="group border border-border hover:border-accent px-8 py-4 text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-accent/10">
-          <span class="text-text-muted group-hover:text-accent transition-colors">Presets & Tools →</span>
-        </a>
-        <a href={`${base}production/`} class="group border border-border hover:border-accent px-8 py-4 text-xs tracking-[0.2em] uppercase transition-all duration-300 hover:bg-accent/10">
-          <span class="text-text-muted group-hover:text-accent transition-colors">Production →</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
-      <svg class="w-5 h-5 text-text-muted/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7" />
-      </svg>
-    </div>
-  </section>
-
-  <!-- FEATURED WORK -->
-  <section class="py-24 px-6 max-w-7xl mx-auto fade-in">
-    <div class="flex justify-between items-end mb-12">
-      <h2 class="font-serif text-3xl md:text-4xl">Selected Work</h2>
-      <a href={`${base}work/`} class="text-sm text-accent hover:text-accent-hover transition-colors hidden md:block">View All →</a>
-    </div>
-    <div class="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide">
-      {projects.map(project => (
-        <a href={`${base}work/`} class="group flex-shrink-0 w-[300px] md:w-[400px] snap-start relative overflow-hidden rounded-lg aspect-[16/9]">
-          <img src={project.thumb} alt={project.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-          <div class="absolute bottom-0 left-0 p-5">
-            <span class="text-xs tracking-wider uppercase text-accent font-mono">{project.tag}</span>
-            <h3 class="text-lg font-medium mt-1">{project.title}</h3>
+          <!-- Content -->
+          <div class="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+            <h2 class="font-serif text-2xl md:text-4xl text-white tracking-[2px] mb-2">
+              {card.title}
+            </h2>
+            <p class="text-white/70 text-sm md:text-base mb-4 max-w-lg">
+              {card.description}
+            </p>
+            <span class="inline-block border border-accent text-accent px-6 py-2.5 text-xs tracking-[2px] uppercase rounded-lg group-hover:bg-accent group-hover:text-bg transition-all duration-300">
+              Explore
+            </span>
           </div>
         </a>
       ))}
     </div>
   </section>
 
-  <!-- SOCIAL PROOF -->
-  <section class="py-16 border-y border-border fade-in">
-    <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-8 md:gap-16 text-center">
-      <div>
-        <div class="font-serif text-3xl md:text-4xl text-accent">97K+</div>
-        <div class="text-xs tracking-wider uppercase text-text-muted mt-1">Followers</div>
-      </div>
-      <div>
-        <div class="font-serif text-3xl md:text-4xl text-accent">150+</div>
-        <div class="text-xs tracking-wider uppercase text-text-muted mt-1">Campaigns</div>
-      </div>
-      <div>
-        <div class="font-serif text-3xl md:text-4xl text-accent">7+</div>
-        <div class="text-xs tracking-wider uppercase text-text-muted mt-1">Countries</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRESET TEASER -->
-  <section class="py-24 px-6 max-w-7xl mx-auto fade-in">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="aspect-[4/3] rounded-lg overflow-hidden bg-bg-card flex items-center justify-center">
-        <div class="text-center p-8">
-          <div class="text-6xl mb-4 opacity-40">🎨</div>
-          <p class="text-text-muted text-sm">Before / After coming soon</p>
-        </div>
-      </div>
-      <div>
-        <span class="text-xs tracking-[0.2em] uppercase text-accent font-mono">New</span>
-        <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-4">Cinematic Presets</h2>
-        <p class="text-text-muted leading-relaxed mb-8">
-          Professional Lightroom presets crafted for cinematic, fashion-forward editing.
-          Transform your photos with one click.
-        </p>
-        <a href={`${base}presets/`} class="inline-block border border-accent text-accent px-8 py-3 text-sm tracking-wider uppercase hover:bg-accent hover:text-bg transition-all duration-300">
-          Shop Presets →
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT TEASER -->
-  <section class="py-24 px-6 max-w-7xl mx-auto fade-in">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="order-2 md:order-1">
-        <h2 class="font-serif text-3xl md:text-4xl mb-4">About Emilia</h2>
-        <p class="text-text-muted leading-relaxed mb-6">
-          Master's in audiovisual arts. 10+ years creating cinematic visual stories
-          for brands, hotels, and fashion campaigns — from concept to final cut, all in-house.
-        </p>
-        <a href={`${base}about/`} class="text-accent text-sm tracking-wider uppercase hover:text-accent-hover transition-colors">
-          More About Me →
-        </a>
-      </div>
-      <div class="order-1 md:order-2 aspect-[3/4] rounded-lg overflow-hidden max-w-sm mx-auto md:ml-auto">
-        <img src={`${base}images/hero.jpg`} alt="Emilia Shaemsha" class="w-full h-full object-cover" />
-      </div>
-    </div>
-  </section>
-
-  <!-- INSTAGRAM FEED -->
-  <section class="py-24 border-t border-border fade-in">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex justify-between items-center mb-8">
-        <h2 class="font-serif text-2xl">@shaemsha</h2>
-        <a href="https://instagram.com/shaemsha" target="_blank" class="text-sm text-accent hover:text-accent-hover transition-colors">
-          Follow on Instagram →
-        </a>
-      </div>
-      <div class="grid grid-cols-3 md:grid-cols-6 gap-2">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <a href="https://instagram.com/shaemsha" target="_blank" class="aspect-square bg-bg-card rounded overflow-hidden flex items-center justify-center hover:bg-border/30 transition-colors duration-300">
-            <svg class="w-6 h-6 text-text-muted/30" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
 </BaseLayout>
-
-<style>
-  .scrollbar-hide::-webkit-scrollbar { display: none; }
-  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-</style>
