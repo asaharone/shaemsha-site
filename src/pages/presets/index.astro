@@ -28,7 +28,7 @@ const orderedPresets = usageExamplesOrder
       <!-- Header -->
       <div class="text-center mb-4">
         <h1 class="font-serif font-medium uppercase tracking-[3px] text-2xl md:text-3xl text-text">SHAEMSHA Presets 01</h1>
-        <p class="text-text-muted text-[10px] md:text-xs mt-1">7 presets · Lightroom Mobile & Desktop</p>
+        <p class="text-text-muted text-xs md:text-xs mt-1">7 presets · Lightroom Mobile & Desktop</p>
       </div>
 
       <!-- Main Before/After Photo -->
@@ -54,21 +54,21 @@ const orderedPresets = usageExamplesOrder
             aria-label={`Preview ${preset.name}`}
           >
             <img src={preset.afterImage} alt={preset.name} class="w-full h-full object-cover" loading="lazy" />
-            <span class="absolute bottom-1 left-0 right-0 text-center text-[5px] text-white font-medium tracking-wider drop-shadow-lg">{preset.name}</span>
+            <span class="absolute bottom-1 left-0 right-0 text-center text-[8px] text-white font-medium tracking-wider drop-shadow-lg">{preset.name}</span>
           </button>
         ))}
       </div>
 
       <!-- "See usage examples" anchor link -->
-      <a href="#usage-examples" class="block text-center py-2 text-[9px] tracking-[1px] text-accent/70 hover:text-accent uppercase border-b border-white/5 mb-2 transition-colors">
+      <a href="#usage-examples" class="block text-center py-2 text-xs tracking-[1px] text-accent/70 hover:text-accent uppercase border-b border-white/5 mb-2 transition-colors">
         See usage examples ↓
       </a>
 
       <!-- Currency Toggle + Price + Buy -->
       <div class="text-center mt-4">
         <div class="inline-flex gap-0.5 bg-bg-card rounded-full p-0.5 mb-3" id="currency-toggle">
-          <button class="cur-btn px-4 py-1.5 rounded-full text-[10px] font-semibold transition-all bg-accent text-bg" data-currency="usd" type="button">USD</button>
-          <button class="cur-btn px-4 py-1.5 rounded-full text-[10px] font-semibold transition-all text-text-muted" data-currency="uah" type="button">UAH</button>
+          <button class="cur-btn px-4 py-1.5 rounded-full text-xs font-semibold transition-all bg-accent text-bg" data-currency="usd" type="button">USD</button>
+          <button class="cur-btn px-4 py-1.5 rounded-full text-xs font-semibold transition-all text-text-muted" data-currency="uah" type="button">UAH</button>
         </div>
 
         <div class="font-sans text-3xl text-accent" id="price-display">{pricing.usd.amount}</div>
@@ -78,7 +78,7 @@ const orderedPresets = usageExamplesOrder
           BUY NOW
         </a>
 
-        <div class="flex justify-center gap-4 mt-3 text-[9px] text-text-muted">
+        <div class="flex justify-center gap-4 mt-3 text-xs text-text-muted">
           <span>✓ Instant email</span>
           <span>✓ .dng + .xmp</span>
           <span>✓ Mobile & Desktop</span>
@@ -90,27 +90,27 @@ const orderedPresets = usageExamplesOrder
   <!-- 3. WHAT'S INCLUDED -->
   <section class="py-12 px-4 fade-in">
     <div class="max-w-[600px] mx-auto">
-      <h2 class="text-accent text-[9px] tracking-[2px] uppercase font-mono mb-4">What's Included</h2>
+      <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-4">What's Included</h2>
       <div class="space-y-3">
         <div class="flex items-center gap-3 p-3 bg-bg-card rounded-lg">
           <span class="text-accent text-sm">✓</span>
           <div>
             <div class="text-sm text-text">7 Lightroom Presets</div>
-            <div class="text-[10px] text-text-muted">.dng (Mobile) + .xmp (Desktop)</div>
+            <div class="text-xs text-text-muted">.dng (Mobile) + .xmp (Desktop)</div>
           </div>
         </div>
         <div class="flex items-center gap-3 p-3 bg-bg-card rounded-lg">
           <span class="text-accent text-sm">✓</span>
           <div>
             <div class="text-sm text-text">Installation Guide</div>
-            <div class="text-[10px] text-text-muted">Step-by-step for Mobile & Desktop</div>
+            <div class="text-xs text-text-muted">Step-by-step for Mobile & Desktop</div>
           </div>
         </div>
         <div class="flex items-center gap-3 p-3 bg-bg-card rounded-lg">
           <span class="text-accent text-sm">✓</span>
           <div>
             <div class="text-sm text-text">Instant Email Delivery</div>
-            <div class="text-[10px] text-text-muted">Download link sent to your email</div>
+            <div class="text-xs text-text-muted">Download link sent to your email</div>
           </div>
         </div>
       </div>
@@ -120,7 +120,7 @@ const orderedPresets = usageExamplesOrder
   <!-- 4. HOW IT WORKS -->
   <section class="py-12 px-4 fade-in">
     <div class="max-w-[600px] mx-auto">
-      <h2 class="text-accent text-[9px] tracking-[2px] uppercase font-mono mb-3 text-center">{pc.howItWorks.label}</h2>
+      <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-3 text-center">{pc.howItWorks.label}</h2>
       <p class="text-sm text-text-muted text-center mb-5 max-w-[420px] mx-auto">{pc.howItWorks.text}</p>
       <div class="max-w-[280px] mx-auto aspect-[3/4] rounded-xl overflow-hidden bg-bg-card">
         <img src={pc.howItWorks.gif} alt="How it works" class="w-full h-full object-cover" loading="lazy" decoding="async" />
@@ -131,7 +131,7 @@ const orderedPresets = usageExamplesOrder
   <!-- 5. HOW TO INSTALL -->
   <section class="py-12 px-4 fade-in">
     <div class="max-w-[600px] mx-auto">
-      <h2 class="text-accent text-[9px] tracking-[2px] uppercase font-mono mb-3 text-center">{pc.howToInstall.label}</h2>
+      <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-3 text-center">{pc.howToInstall.label}</h2>
       <p class="text-sm text-text-muted text-center mb-5 max-w-[420px] mx-auto">{pc.howToInstall.text}</p>
       <div class="max-w-[280px] mx-auto aspect-[3/4] rounded-xl overflow-hidden bg-bg-card">
         <img src={pc.howToInstall.gif} alt="How to install" class="w-full h-full object-cover" loading="lazy" decoding="async" />
@@ -143,7 +143,7 @@ const orderedPresets = usageExamplesOrder
   <section id="usage-examples" class="py-12 px-4 fade-in">
     <div class="max-w-[600px] mx-auto">
       <div class="text-center mb-8">
-        <h2 class="text-accent text-[9px] tracking-[2px] uppercase font-mono mb-2">{pc.usageExamples.label}</h2>
+        <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-2">{pc.usageExamples.label}</h2>
         <h3 class="font-serif text-2xl md:text-3xl text-text">{pc.usageExamples.title}</h3>
       </div>
 
@@ -169,7 +169,7 @@ const orderedPresets = usageExamplesOrder
   <!-- 7. FAQ -->
   <section class="py-12 px-4 fade-in">
     <div class="max-w-[600px] mx-auto">
-      <h2 class="text-accent text-[9px] tracking-[2px] uppercase font-mono mb-4">FAQ</h2>
+      <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-4">FAQ</h2>
       <div class="space-y-2">
         {faqItems.map(item => (
           <details class="group border border-border rounded-lg overflow-hidden">
