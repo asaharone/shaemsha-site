@@ -8,6 +8,7 @@ const cards = [
     title: 'UGC · PR · Content',
     description: 'Cinematic content, brand storytelling, and influencer collaborations',
     image: `${base}images/hero.jpg`,
+    cta: 'Work With Me',
     span: false,
   },
   {
@@ -15,6 +16,7 @@ const cards = [
     title: 'Video Production',
     description: 'Commercials, brand films, and fashion campaigns',
     image: `${base}images/hero.jpg`,
+    cta: 'View Showreel',
     span: false,
   },
   {
@@ -22,6 +24,7 @@ const cards = [
     title: 'Presets',
     description: 'Professional Lightroom presets for cinematic color grading',
     image: `${base}images/presets/nude_after.jpg`,
+    cta: 'Shop Presets',
     span: true,
   },
 ];
@@ -54,11 +57,11 @@ const cards = [
             <h2 class="font-serif text-2xl md:text-4xl text-white tracking-[3px] mb-2 uppercase font-medium">
               {card.title}
             </h2>
-            <p class="font-serif text-sm md:text-base text-white/60 italic mb-4 max-w-lg">
+            <p class="font-serif text-sm md:text-base text-white/80 italic mb-6 max-w-lg">
               {card.description}
             </p>
-            <span class="inline-block border border-accent text-accent px-6 py-2.5 text-xs tracking-[2px] uppercase rounded-lg group-hover:bg-accent group-hover:text-bg transition-all duration-300">
-              Explore
+            <span class="inline-block bg-accent text-bg px-8 py-3 text-xs font-bold tracking-[2px] uppercase rounded-lg group-hover:bg-accent-hover transition-all duration-300">
+              {card.cta}
             </span>
           </div>
         </a>
