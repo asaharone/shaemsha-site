@@ -30,6 +30,10 @@
     background: var(--color-accent);
     color: var(--color-bg);
   }
+
+  .font-serif {
+    font-variant-numeric: lining-nums;
+  }
 }
 
 /* Fade in animation */
