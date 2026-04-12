@@ -14,6 +14,16 @@ const pc = pageContent;
 const orderedPresets = usageExamplesOrder
   .map(id => presets.find(p => p.id === id))
   .filter((p): p is typeof presets[number] => p !== undefined);
+
+// FAQ question translations (UA)
+const faqQuestionsUa: Record<string, string> = {
+  'Do these work on iPhone?': 'Чи працюють на iPhone?',
+  'Can I use on Android?': 'Чи можу я використовувати на Android?',
+  'How many photos can I edit?': 'Скільки фото я можу редагувати?',
+  'Do I need the paid version of Lightroom?': 'Чи потрібна платна версія Lightroom?',
+  'Can I get a refund?': 'Чи можу я отримати повернення коштів?',
+  'Will I receive updates?': 'Чи отримаю я оновлення?',
+};
 ---
 
 <BaseLayout title="SHAEMSHA Presets 01 — Cinematic Lightroom Presets">
@@ -27,8 +37,14 @@ const orderedPresets = usageExamplesOrder
 
       <!-- Header -->
       <div class="text-center mb-4">
-        <h1 class="font-serif font-medium tracking-[1px] text-2xl md:text-3xl text-text">Shaemsha Lightroom Presets — Pack <span class="font-sans">01</span></h1>
-        <p class="text-text-muted text-xs md:text-xs mt-1">7 авторських пресетів для мобільного та десктопу</p>
+        <h1 class="font-serif font-medium tracking-[1px] text-2xl md:text-3xl text-text">
+          <span class="lang-ua">Shaemsha Lightroom Пресети — Пак <span class="font-sans">01</span></span>
+          <span class="lang-en hidden">Shaemsha Lightroom Presets — Pack <span class="font-sans">01</span></span>
+        </h1>
+        <p class="text-text-muted text-xs md:text-xs mt-1">
+          <span class="lang-ua">7 авторських пресетів для мобільного та десктопу</span>
+          <span class="lang-en hidden">7 cinematic presets for mobile and desktop</span>
+        </p>
       </div>
 
       <!-- Main Before/After Photo -->
@@ -61,7 +77,8 @@ const orderedPresets = usageExamplesOrder
 
       <!-- "See usage examples" anchor link -->
       <a href="#usage-examples" class="block text-center py-2 text-xs tracking-[1px] text-accent/70 hover:text-accent uppercase border-b border-white/5 mb-2 transition-colors">
-        See usage examples ↓
+        <span class="lang-ua">Дивитись приклади ↓</span>
+        <span class="lang-en hidden">See usage examples ↓</span>
       </a>
 
       <!-- Currency Toggle + Price + Buy -->
@@ -79,9 +96,15 @@ const orderedPresets = usageExamplesOrder
         </a>
 
         <div class="flex justify-center gap-4 mt-3 text-xs text-text-muted">
-          <span>✓ Instant email</span>
+          <span>
+            <span class="lang-ua">✓ Миттєва доставка</span>
+            <span class="lang-en hidden">✓ Instant email</span>
+          </span>
           <span>✓ .dng + .xmp</span>
-          <span>✓ Mobile & Desktop</span>
+          <span>
+            <span class="lang-ua">✓ Мобільний та десктоп</span>
+            <span class="lang-en hidden">✓ Mobile & Desktop</span>
+          </span>
         </div>
       </div>
     </div>
@@ -90,27 +113,45 @@ const orderedPresets = usageExamplesOrder
   <!-- 3. WHAT'S INCLUDED -->
   <section class="py-12 px-4 fade-in">
     <div class="max-w-[600px] mx-auto">
-      <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-4">What's Included</h2>
+      <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-4">
+        <span class="lang-ua">Що входить</span>
+        <span class="lang-en hidden">What's Included</span>
+      </h2>
       <div class="space-y-3">
         <div class="flex items-center gap-3 p-3 bg-bg-card rounded-lg">
           <span class="text-accent text-sm">✓</span>
           <div>
-            <div class="text-sm text-text">7 Lightroom Presets</div>
+            <div class="text-sm text-text">
+              <span class="lang-ua">7 пресетів для Lightroom</span>
+              <span class="lang-en hidden">7 Lightroom Presets</span>
+            </div>
             <div class="text-xs text-text-muted">.dng (Mobile) + .xmp (Desktop)</div>
           </div>
         </div>
         <div class="flex items-center gap-3 p-3 bg-bg-card rounded-lg">
           <span class="text-accent text-sm">✓</span>
           <div>
-            <div class="text-sm text-text">Installation Guide</div>
-            <div class="text-xs text-text-muted">Step-by-step for Mobile & Desktop</div>
+            <div class="text-sm text-text">
+              <span class="lang-ua">Інструкція з встановлення</span>
+              <span class="lang-en hidden">Installation Guide</span>
+            </div>
+            <div class="text-xs text-text-muted">
+              <span class="lang-ua">Покрокова для мобільного та десктопу</span>
+              <span class="lang-en hidden">Step-by-step for Mobile & Desktop</span>
+            </div>
           </div>
         </div>
         <div class="flex items-center gap-3 p-3 bg-bg-card rounded-lg">
           <span class="text-accent text-sm">✓</span>
           <div>
-            <div class="text-sm text-text">Instant Email Delivery</div>
-            <div class="text-xs text-text-muted">Download link sent to your email</div>
+            <div class="text-sm text-text">
+              <span class="lang-ua">Миттєва доставка на email</span>
+              <span class="lang-en hidden">Instant Email Delivery</span>
+            </div>
+            <div class="text-xs text-text-muted">
+              <span class="lang-ua">Посилання для завантаження на вашу пошту</span>
+              <span class="lang-en hidden">Download link sent to your email</span>
+            </div>
           </div>
         </div>
       </div>
@@ -120,8 +161,14 @@ const orderedPresets = usageExamplesOrder
   <!-- 4. HOW IT WORKS -->
   <section class="py-16 px-4 fade-in">
     <div class="max-w-[480px] mx-auto">
-      <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-2 text-center">{pc.howItWorks.label}</h2>
-      <p class="font-serif text-xl md:text-2xl text-text font-medium text-center mb-8">From purchase to your first edit in minutes</p>
+      <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-2 text-center">
+        <span class="lang-ua">ЯК ЦЕ ПРАЦЮЄ</span>
+        <span class="lang-en hidden">HOW IT WORKS</span>
+      </h2>
+      <p class="font-serif text-xl md:text-2xl text-text font-medium text-center mb-8">
+        <span class="lang-ua">Від покупки до першого редагування за хвилини</span>
+        <span class="lang-en hidden">From purchase to your first edit in minutes</span>
+      </p>
 
       <!-- Steps list -->
       <div class="space-y-6">
@@ -131,8 +178,14 @@ const orderedPresets = usageExamplesOrder
             <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
           </div>
           <div>
-            <h3 class="text-base text-text font-medium mb-1">Easy checkout</h3>
-            <p class="text-sm text-text-muted leading-relaxed">Pay with card in a few taps. You'll receive the preset files to your email instantly.</p>
+            <h3 class="text-base text-text font-medium mb-1">
+              <span class="lang-ua">Легка оплата</span>
+              <span class="lang-en hidden">Easy checkout</span>
+            </h3>
+            <p class="text-sm text-text-muted leading-relaxed">
+              <span class="lang-ua">Оплатіть картою в кілька натискань. Файли пресетів отримаєте на email миттєво.</span>
+              <span class="lang-en hidden">Pay with card in a few taps. You'll receive the preset files to your email instantly.</span>
+            </p>
           </div>
         </div>
 
@@ -141,8 +194,14 @@ const orderedPresets = usageExamplesOrder
             <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
           </div>
           <div>
-            <h3 class="text-base text-text font-medium mb-1">Get your files</h3>
-            <p class="text-sm text-text-muted leading-relaxed">Download .dng for Lightroom Mobile or .xmp for Desktop — both formats included.</p>
+            <h3 class="text-base text-text font-medium mb-1">
+              <span class="lang-ua">Отримайте файли</span>
+              <span class="lang-en hidden">Get your files</span>
+            </h3>
+            <p class="text-sm text-text-muted leading-relaxed">
+              <span class="lang-ua">Завантажте .dng для Lightroom Mobile або .xmp для Desktop — обидва формати включені.</span>
+              <span class="lang-en hidden">Download .dng for Lightroom Mobile or .xmp for Desktop — both formats included.</span>
+            </p>
           </div>
         </div>
 
@@ -151,8 +210,14 @@ const orderedPresets = usageExamplesOrder
             <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
           </div>
           <div>
-            <h3 class="text-base text-text font-medium mb-1">Open Lightroom</h3>
-            <p class="text-sm text-text-muted leading-relaxed">The free version of Lightroom Mobile works perfectly — available on iOS and Android.</p>
+            <h3 class="text-base text-text font-medium mb-1">
+              <span class="lang-ua">Відкрийте Lightroom</span>
+              <span class="lang-en hidden">Open Lightroom</span>
+            </h3>
+            <p class="text-sm text-text-muted leading-relaxed">
+              <span class="lang-ua">Безкоштовна версія Lightroom Mobile підходить ідеально — доступна на iOS та Android.</span>
+              <span class="lang-en hidden">The free version of Lightroom Mobile works perfectly — available on iOS and Android.</span>
+            </p>
           </div>
         </div>
 
@@ -161,8 +226,14 @@ const orderedPresets = usageExamplesOrder
             <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m4-4l-4-4m0 0l-4 4m4-4V4"/></svg>
           </div>
           <div>
-            <h3 class="text-base text-text font-medium mb-1">Import & save as preset</h3>
-            <p class="text-sm text-text-muted leading-relaxed">Open the .dng → tap ••• → "Create Preset" → name it. Done once, stays forever.</p>
+            <h3 class="text-base text-text font-medium mb-1">
+              <span class="lang-ua">Імпортуйте та збережіть</span>
+              <span class="lang-en hidden">Import & save as preset</span>
+            </h3>
+            <p class="text-sm text-text-muted leading-relaxed">
+              <span class="lang-ua">Відкрийте .dng &rarr; натисніть &bull;&bull;&bull; &rarr; &laquo;Create Preset&raquo; &rarr; назвіть. Один раз — і назавжди.</span>
+              <span class="lang-en hidden">Open the .dng &rarr; tap &bull;&bull;&bull; &rarr; "Create Preset" &rarr; name it. Done once, stays forever.</span>
+            </p>
           </div>
         </div>
 
@@ -171,8 +242,14 @@ const orderedPresets = usageExamplesOrder
             <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
           </div>
           <div>
-            <h3 class="text-base text-text font-medium mb-1">Make it yours</h3>
-            <p class="text-sm text-text-muted leading-relaxed">Apply my cinematic color to your own photos with one tap. Every frame becomes a feeling.</p>
+            <h3 class="text-base text-text font-medium mb-1">
+              <span class="lang-ua">Зробіть своїм</span>
+              <span class="lang-en hidden">Make it yours</span>
+            </h3>
+            <p class="text-sm text-text-muted leading-relaxed">
+              <span class="lang-ua">Застосуйте мій кінематографічний колір до своїх фото одним натисканням. Кожен кадр стає настроєм.</span>
+              <span class="lang-en hidden">Apply my cinematic color to your own photos with one tap. Every frame becomes a feeling.</span>
+            </p>
           </div>
         </div>
 
@@ -186,8 +263,14 @@ const orderedPresets = usageExamplesOrder
   <section id="usage-examples" class="py-12 px-4 fade-in">
     <div class="max-w-[600px] mx-auto">
       <div class="text-center mb-8">
-        <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-2">{pc.usageExamples.label}</h2>
-        <h3 class="font-serif text-2xl md:text-3xl text-text">{pc.usageExamples.title}</h3>
+        <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-2">
+          <span class="lang-ua">ПРИКЛАДИ ВИКОРИСТАННЯ</span>
+          <span class="lang-en hidden">USAGE EXAMPLES</span>
+        </h2>
+        <h3 class="font-serif text-2xl md:text-3xl text-text">
+          <span class="lang-ua">Де кожен пресет працює найкраще</span>
+          <span class="lang-en hidden">Where each preset works best</span>
+        </h3>
       </div>
 
       {orderedPresets.map(preset => (
@@ -213,12 +296,18 @@ const orderedPresets = usageExamplesOrder
   <section class="py-12 px-4 fade-in">
     <div class="max-w-[600px] mx-auto">
       <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-2">FAQ</h2>
-      <p class="font-serif text-xl md:text-2xl text-text font-medium mb-6">Got questions? We've got answers</p>
+      <p class="font-serif text-xl md:text-2xl text-text font-medium mb-6">
+        <span class="lang-ua">Маєте питання? Ми маємо відповіді</span>
+        <span class="lang-en hidden">Got questions? We've got answers</span>
+      </p>
       <div class="space-y-2">
         {faqItems.map(item => (
           <details class="group border border-border rounded-lg overflow-hidden">
             <summary class="flex justify-between items-center px-4 py-3 cursor-pointer text-sm font-medium hover:bg-bg-card transition-colors">
-              {item.q}
+              <span>
+                <span class="lang-ua">{faqQuestionsUa[item.q] || item.q}</span>
+                <span class="lang-en hidden">{item.q}</span>
+              </span>
               <svg class="w-4 h-4 text-text-muted transition-transform group-open:rotate-45 flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
               </svg>
@@ -233,6 +322,24 @@ const orderedPresets = usageExamplesOrder
   </section>
 
 </BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    function setPageLang(lang) {
+      document.querySelectorAll('.lang-ua').forEach(function(el) {
+        el.classList.toggle('hidden', lang !== 'ua');
+      });
+      document.querySelectorAll('.lang-en').forEach(function(el) {
+        el.classList.toggle('hidden', lang !== 'en');
+      });
+    }
+    var saved = localStorage.getItem('shaemsha-lang') || 'ua';
+    setPageLang(saved);
+    window.addEventListener('lang-change', function(e) {
+      setPageLang(e.detail);
+    });
+  });
+</script>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', function() {
