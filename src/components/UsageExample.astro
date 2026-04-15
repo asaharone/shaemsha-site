@@ -3,30 +3,50 @@ interface Props {
   id: string;
   name: string;
   description: string;
-  photos: string[]; // Expects exactly 3 photos
+  photos: string[];
+  beforeImage: string;
+  afterImage: string;
 }
 
-const { id, name, description, photos } = Astro.props;
+const { id, name, description, photos, beforeImage, afterImage } = Astro.props;
 ---
 
 <div id={`preset-${id}`} class="py-8 border-b border-border last:border-b-0 fade-in">
-  <!-- Preset name -->
-  <h3 class="font-serif font-medium uppercase tracking-[2px] text-2xl md:text-3xl text-accent text-center mb-4">
-    {name}
-  </h3>
 
-  <!-- 3 photos in a row -->
-  <div class="grid grid-cols-3 gap-1.5 md:gap-2 mb-4">
+  <!-- 3 photos in a row with overlay name + before/after toggle -->
+  <div class="usage-gallery grid grid-cols-3 gap-1.5 md:gap-2 mb-4" data-before={beforeImage} data-after={photos[0]}>
     {photos.slice(0, 3).map((photo, i) => (
-      <div class="aspect-[3/4] rounded-md overflow-hidden bg-bg-card">
+      <div class="aspect-[3/4] rounded-md overflow-hidden bg-bg-card relative group cursor-pointer select-none">
+        <!-- After photo (default) -->
         <img
           src={photo}
           alt={`${name} example ${i + 1}`}
-          class="w-full h-full object-cover"
+          class="usage-img-after w-full h-full object-cover"
           loading="lazy"
         />
+        <!-- Before photo (hidden, shown on toggle) -->
+        <img
+          src={beforeImage}
+          alt={`${name} before`}
+          class="usage-img-before absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500"
+          loading="lazy"
+        />
+        <!-- Preset name overlay watermark -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <span class="font-serif text-white/20 text-2xl md:text-4xl font-medium uppercase tracking-[4px] select-none" style="text-shadow: 0 1px 8px rgba(0,0,0,0.3)">
+            {name}
+          </span>
+        </div>
       </div>
     ))}
+  </div>
+
+  <!-- Before/After toggle pill -->
+  <div class="flex justify-center mb-4">
+    <button class="usage-toggle relative flex items-center bg-bg-card border border-border rounded-full px-1 py-1 cursor-pointer" type="button" aria-label={`Toggle before/after for ${name}`}>
+      <span class="usage-label-after relative z-10 text-xs font-semibold tracking-[1px] px-4 py-1.5 bg-accent text-bg rounded-full transition-all duration-300">AFTER</span>
+      <span class="usage-label-before relative z-10 text-xs font-semibold tracking-[1px] px-4 py-1.5 text-text-muted rounded-full transition-all duration-300">BEFORE</span>
+    </button>
   </div>
 
   <!-- Description -->
@@ -34,3 +54,40 @@ const { id, name, description, photos } = Astro.props;
     {description}
   </p>
 </div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.usage-toggle').forEach(function(btn) {
+      var gallery = btn.closest('[id^="preset-"]').querySelector('.usage-gallery');
+      var befores = gallery.querySelectorAll('.usage-img-before');
+      var labelAfter = btn.querySelector('.usage-label-after');
+      var labelBefore = btn.querySelector('.usage-label-before');
+      var showingBefore = false;
+
+      btn.addEventListener('click', function() {
+        showingBefore = !showingBefore;
+        befores.forEach(function(img) {
+          if (showingBefore) {
+            img.classList.remove('opacity-0');
+            img.classList.add('opacity-100');
+          } else {
+            img.classList.add('opacity-0');
+            img.classList.remove('opacity-100');
+          }
+        });
+
+        if (showingBefore) {
+          labelBefore.classList.add('bg-accent', 'text-bg');
+          labelBefore.classList.remove('text-text-muted');
+          labelAfter.classList.remove('bg-accent', 'text-bg');
+          labelAfter.classList.add('text-text-muted');
+        } else {
+          labelAfter.classList.add('bg-accent', 'text-bg');
+          labelAfter.classList.remove('text-text-muted');
+          labelBefore.classList.remove('bg-accent', 'text-bg');
+          labelBefore.classList.add('text-text-muted');
+        }
+      });
+    });
+  });
+</script>
