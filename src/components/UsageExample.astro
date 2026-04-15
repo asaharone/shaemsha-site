@@ -32,10 +32,13 @@ const { id, name, description, descriptionUa, photos, beforeImage, afterImage } 
           class="usage-img-before absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500"
           loading="lazy"
         />
-        <!-- Preset name overlay watermark -->
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <span class="font-serif text-white/20 text-2xl md:text-4xl font-medium uppercase tracking-[4px] select-none" style="text-shadow: 0 1px 8px rgba(0,0,0,0.3)">
+        <!-- Preset name + SHAEMSHA watermark -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+          <span class="font-serif text-white/20 text-lg md:text-2xl font-medium uppercase tracking-[4px] select-none">
             {name}
+          </span>
+          <span class="font-sans text-white/10 text-[8px] md:text-[10px] tracking-[3px] select-none mt-0.5">
+            SHAEMSHA
           </span>
         </div>
       </div>

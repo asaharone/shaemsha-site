@@ -30,11 +30,10 @@ const { beforeImage, afterImage, presetName, autoPlay = true } = Astro.props;
     loading="lazy"
   />
 
-  <!-- Preset name label (top-left) -->
-  <div class="absolute top-3 left-3 z-10">
-    <span class="bg-black/55 backdrop-blur-sm text-accent text-xs font-semibold px-3 py-1.5 rounded tracking-[2px] uppercase">
-      {presetName}
-    </span>
+  <!-- Watermark overlay -->
+  <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-[1]">
+    <span class="font-serif text-white/15 text-3xl md:text-5xl font-medium uppercase tracking-[6px] select-none">{presetName}</span>
+    <span class="font-sans text-white/10 text-xs md:text-sm tracking-[3px] select-none mt-1">SHAEMSHA</span>
   </div>
 
   <!-- Pill toggle (bottom-center) -->
