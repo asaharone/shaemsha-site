@@ -35,7 +35,20 @@ const faqQuestionsUa: Record<string, string> = {
   <section class="pt-4 pb-8 md:pt-6 md:pb-12 px-4">
     <div class="max-w-[600px] md:max-w-5xl mx-auto">
 
-      <!-- Desktop: two columns. Mobile: single column -->
+      <!-- Mobile: Title first, then photo. Desktop: two columns -->
+
+      <!-- Mobile-only title (hidden on desktop) -->
+      <div class="md:hidden text-center mb-4">
+        <h1 class="font-serif font-medium tracking-[1px] text-2xl text-text leading-tight mb-2">
+          <span class="lang-ua">Shaemsha Lightroom Пресети — Пак <span class="font-sans">01</span></span>
+          <span class="lang-en hidden">Shaemsha Lightroom Presets — Pack <span class="font-sans">01</span></span>
+        </h1>
+        <p class="text-text-muted text-sm">
+          <span class="lang-ua">7 авторських пресетів для Lightroom — мобільний та десктоп</span>
+          <span class="lang-en hidden">7 signature Lightroom presets — mobile & desktop</span>
+        </p>
+      </div>
+
       <div class="md:grid md:grid-cols-[1fr_380px] md:gap-8 md:items-start">
 
         <!-- LEFT: Photo + Strip -->
@@ -71,9 +84,9 @@ const faqQuestionsUa: Record<string, string> = {
 
         <!-- RIGHT (desktop) / BELOW (mobile): Title + Buy -->
         <div class="md:sticky md:top-24">
-          <!-- Header -->
-          <div class="text-center md:text-left mb-6 mt-4 md:mt-0">
-            <h1 class="font-serif font-medium tracking-[1px] text-2xl md:text-3xl text-text leading-tight mb-2">
+          <!-- Header (desktop only — mobile version is above the grid) -->
+          <div class="hidden md:block text-left mb-6">
+            <h1 class="font-serif font-medium tracking-[1px] text-3xl text-text leading-tight mb-2">
               <span class="lang-ua">Shaemsha Lightroom<br>Пресети — Пак <span class="font-sans">01</span></span>
               <span class="lang-en hidden">Shaemsha Lightroom<br>Presets — Pack <span class="font-sans">01</span></span>
             </h1>
