@@ -3,12 +3,13 @@ interface Props {
   id: string;
   name: string;
   description: string;
+  descriptionUa?: string;
   photos: string[];
   beforeImage: string;
   afterImage: string;
 }
 
-const { id, name, description, photos, beforeImage, afterImage } = Astro.props;
+const { id, name, description, descriptionUa, photos, beforeImage, afterImage } = Astro.props;
 ---
 
 <div id={`preset-${id}`} class="py-8 border-b border-border last:border-b-0 fade-in">
@@ -51,7 +52,8 @@ const { id, name, description, photos, beforeImage, afterImage } = Astro.props;
 
   <!-- Description -->
   <p class="text-sm text-text-muted leading-relaxed text-center max-w-[480px] mx-auto">
-    {description}
+    {descriptionUa && <span class="lang-ua">{descriptionUa}</span>}
+    <span class={`lang-en ${descriptionUa ? 'hidden' : ''}`}>{description}</span>
   </p>
 </div>
 
