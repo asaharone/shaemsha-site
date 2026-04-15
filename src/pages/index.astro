@@ -36,20 +36,18 @@ const cards = [
 <BaseLayout title="EMILIA SHAEMSHA — Videographer · Content Creator · Director">
 
   <section class="pt-16 md:pt-20 px-2 md:px-4 pb-2 md:pb-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-1.5 md:gap-3">
-      {cards.map(card => (
+    <div class="max-w-3xl mx-auto flex flex-col gap-1.5 md:gap-3">
+      {cards.map((card, i) => (
         <a
           href={card.href}
-          class={`group relative overflow-hidden rounded-xl cursor-pointer ${
-            card.span ? 'md:col-span-2 min-h-[28vh] md:min-h-[30vh]' : 'min-h-[30vh] md:min-h-[45vh]'
-          }`}
+          class="group relative overflow-hidden rounded-xl cursor-pointer min-h-[30vh] md:min-h-[45vh]"
         >
           <!-- B&W Background Image -->
           <img
             src={card.image}
             alt=""
             class="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-            loading={card.span ? 'lazy' : 'eager'}
+            loading={i === 0 ? 'eager' : 'lazy'}
           />
 
           <!-- Dark Gradient Overlay -->
