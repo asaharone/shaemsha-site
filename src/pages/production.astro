@@ -52,21 +52,33 @@ const verticalFilms = [
   <section class="py-24 px-6 border-t border-border fade-in">
     <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
       <div>
-        <p class="font-serif italic text-2xl md:text-3xl text-accent/80 leading-relaxed">
-          "I believe every brand has a story worth filming. My job is to find the visual language
-          that makes it unforgettable."
+        <p class="font-serif italic text-2xl md:text-3xl text-accent/80 leading-relaxed lang-ua">
+          «Кожен бренд має свою історію, яку варто показати. Shaemsha допомагає знайти для неї візуальну мову.»
+        </p>
+        <p class="font-serif italic text-2xl md:text-3xl text-accent/80 leading-relaxed lang-en hidden">
+          "Every brand has a story worth filming. Shaemsha shapes it into a clear visual language."
         </p>
       </div>
       <div class="space-y-4 text-text-muted leading-relaxed">
-        <p>
-          My approach to direction is rooted in cinematic storytelling — creating visuals that feel
-          like they belong on a screen, not a feed. Every project starts with understanding the emotion
-          behind the brand.
-        </p>
-        <p>
-          From concept to final cut, I oversee every stage of production — directing, shooting, editing,
-          and motion graphics — to ensure the visual language stays consistent and the story lands with impact.
-        </p>
+        <div class="lang-ua space-y-4">
+          <p>
+            У роботі важливі настрій, образ і цілісна подача. Все починається з брифу, діалогу з брендом
+            і розуміння того, як саме він має виглядати в кадрі.
+          </p>
+          <p>
+            Від ідеї до фінального монтажу Shaemsha виконує режисуру, зйомку та монтаж.
+          </p>
+        </div>
+        <div class="lang-en hidden space-y-4">
+          <p>
+            Mood, style, and the overall visual feel matter in every project. It all starts with the brief,
+            communication with the brand, and a clear understanding of how it should look on screen.
+          </p>
+          <p>
+            From the first idea to the final edit, Shaemsha handles the full process:
+            directing, shooting, and editing.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -188,7 +200,6 @@ const verticalFilms = [
           { icon: '🎵', title: 'Music Videos', desc: 'Cinematic music video production' },
           { icon: '👗', title: 'Fashion Campaigns', desc: 'Editorial and commercial fashion production' },
           { icon: '🎨', title: 'Creative Direction', desc: 'Concept development and art direction' },
-          { icon: '✨', title: 'Motion Graphics', desc: 'Animated titles, logos, and visual effects' },
         ].map(s => (
           <div class="p-6 border border-border rounded-xl bg-bg-card">
             <div class="text-2xl mb-3">{s.icon}</div>
@@ -296,6 +307,25 @@ const verticalFilms = [
   </section>
 
 </BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    function setLang(lang) {
+      document.querySelectorAll('.lang-ua').forEach(function(el) {
+        el.classList.toggle('hidden', lang !== 'ua');
+      });
+      document.querySelectorAll('.lang-en').forEach(function(el) {
+        el.classList.toggle('hidden', lang !== 'en');
+      });
+      localStorage.setItem('shaemsha-lang', lang);
+    }
+    var saved = localStorage.getItem('shaemsha-lang') || 'ua';
+    setLang(saved);
+    window.addEventListener('lang-change', function(e) {
+      setLang(e.detail);
+    });
+  });
+</script>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
 

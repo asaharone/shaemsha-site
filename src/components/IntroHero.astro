@@ -1,10 +1,11 @@
 ---
 interface Props {
   quote: string;
+  quoteUa?: string;
   vimeoId: string;
 }
 
-const { quote, vimeoId } = Astro.props;
+const { quote, quoteUa, vimeoId } = Astro.props;
 const vimeoUrl = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&muted=1&loop=1&background=1&title=0&byline=0&portrait=0`;
 ---
 
@@ -12,7 +13,8 @@ const vimeoUrl = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&muted=1&l
   <div class="max-w-[600px] mx-auto">
     <!-- Quote text -->
     <p class="font-serif font-medium text-xl md:text-2xl italic leading-relaxed text-text text-center mb-5 max-w-[520px] mx-auto">
-      {quote}
+      {quoteUa && <span class="lang-ua">{quoteUa}</span>}
+      <span class={`lang-en ${quoteUa ? 'hidden' : ''}`}>{quote}</span>
     </p>
 
     <!-- Vimeo video, 16:9 -->

@@ -94,7 +94,8 @@ export const checkoutUrls = {
 
 export const pageContent = {
   intro: {
-    quote: 'Color is where a story finds its mood. After 10+ years behind the camera, color grading became the part I love most — the quiet final step that turns a frame into a feeling.',
+    quote: 'Photo is Reality. Preset is Mood.',
+    quoteUa: 'Фото фіксує реальність, а пресет додає їй емоції, настрій та атмосферу.',
     vimeoId: '703936443',
   },
   howItWorks: {
