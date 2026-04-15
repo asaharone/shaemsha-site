@@ -15,16 +15,6 @@ const ex = `${base}images/presets/examples/`;
 
 export const presets: Preset[] = [
   {
-    id: 'dreamy-mood',
-    name: 'DREAMY MOOD',
-    beforeImage: `${base}images/presets/dreamy_mood_before.jpg`,
-    afterImage: `${base}images/presets/dreamy_mood_after.jpg`,
-    description: 'For tender, soft-light moments — adds a hazy dusty-rose glow and dreamy warm mood.',
-    descriptionUa: 'Для ніжних кадрів у м\'якому світлі — серпанковий dusty-rose відтінок і теплий dreamy настрій.',
-    examplePhotos: [`${ex}dreamymood_after_1.jpg`, `${ex}dreamymood_after_2.jpg`, `${ex}dreamymood_after_3.jpg`],
-    exampleBeforePhotos: [`${ex}dreamymood_before_1.jpg`, `${ex}dreamymood_before_2.jpg`, `${ex}dreamymood_before_3.jpg`],
-  },
-  {
     id: 'nude',
     name: 'NUDE',
     beforeImage: `${base}images/presets/nude_before.jpg`,
@@ -33,6 +23,16 @@ export const presets: Preset[] = [
     descriptionUa: 'Для селфі та портретів при денному світлі — м\'якша шкіра й чисті природні тони.',
     examplePhotos: [`${ex}nude_after_1.jpg`, `${ex}nude_after_2.jpg`, `${ex}nude_after_3.jpg`],
     exampleBeforePhotos: [`${ex}nude_before_1.jpg`, `${ex}nude_before_2.jpg`, `${ex}nude_before_3.jpg`],
+  },
+  {
+    id: 'dreamy-mood',
+    name: 'DREAMY MOOD',
+    beforeImage: `${base}images/presets/dreamy_mood_before.jpg`,
+    afterImage: `${base}images/presets/dreamy_mood_after.jpg`,
+    description: 'For tender, soft-light moments — adds a hazy dusty-rose glow and dreamy warm mood.',
+    descriptionUa: 'Для ніжних кадрів у м\'якому світлі — серпанковий dusty-rose відтінок і теплий dreamy настрій.',
+    examplePhotos: [`${ex}dreamymood_after_1.jpg`, `${ex}dreamymood_after_2.jpg`, `${ex}dreamymood_after_3.jpg`],
+    exampleBeforePhotos: [`${ex}dreamymood_before_1.jpg`, `${ex}dreamymood_before_2.jpg`, `${ex}dreamymood_before_3.jpg`],
   },
   {
     id: 'golden-hour',
@@ -61,8 +61,8 @@ export const presets: Preset[] = [
     afterImage: `${base}images/presets/art_noir_after.jpg`,
     description: 'For statement and artistic shots — adds depth, drama, and a graphic vintage-cinematic look.',
     descriptionUa: 'Для артистичних кадрів зі змістом — глибина, драма та графічний vintage кіно-вигляд.',
-    examplePhotos: [`${ex}artnoir_after_1.jpg`, `${ex}artnoir_after_2.jpg`, `${ex}artnoir_after_1.jpg`],
-    exampleBeforePhotos: [`${ex}artnoir_before_1.jpg`, `${ex}artnoir_before_2.jpg`, `${ex}artnoir_before_1.jpg`],
+    examplePhotos: [`${ex}artnoir_after_1.jpg`, `${ex}artnoir_after_2.jpg`, `${ex}artnoir_after_3.jpg`],
+    exampleBeforePhotos: [`${ex}artnoir_before_1.jpg`, `${ex}artnoir_before_2.jpg`, `${ex}artnoir_before_3.jpg`],
   },
   {
     id: 'film-haze',
