@@ -44,8 +44,8 @@ const { id, name, description, photos, beforeImage, afterImage } = Astro.props;
   <!-- Before/After toggle pill -->
   <div class="flex justify-center mb-4">
     <button class="usage-toggle relative flex items-center bg-bg-card border border-border rounded-full px-1 py-1 cursor-pointer" type="button" aria-label={`Toggle before/after for ${name}`}>
-      <span class="usage-label-after relative z-10 text-xs font-semibold tracking-[1px] px-4 py-1.5 bg-accent text-bg rounded-full transition-all duration-300">AFTER</span>
       <span class="usage-label-before relative z-10 text-xs font-semibold tracking-[1px] px-4 py-1.5 text-text-muted rounded-full transition-all duration-300">BEFORE</span>
+      <span class="usage-label-after relative z-10 text-xs font-semibold tracking-[1px] px-4 py-1.5 bg-accent text-bg rounded-full transition-all duration-300">AFTER</span>
     </button>
   </div>
 
