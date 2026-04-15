@@ -84,17 +84,34 @@ const faqQuestionsUa: Record<string, string> = {
       <!-- Currency Toggle + Price + Buy -->
       <div class="text-center mt-4">
         <div class="inline-flex gap-0.5 bg-bg-card rounded-full p-0.5 mb-3" id="currency-toggle">
-          <button class="cur-btn px-4 py-1.5 rounded-full text-xs font-semibold transition-all bg-accent text-bg" data-currency="usd" type="button">USD</button>
+          <button class="cur-btn px-4 py-1.5 rounded-full text-xs font-semibold transition-all bg-accent text-bg" data-currency="eur" type="button">EUR</button>
           <button class="cur-btn px-4 py-1.5 rounded-full text-xs font-semibold transition-all text-text-muted" data-currency="uah" type="button">UAH</button>
         </div>
 
-        <div class="font-sans text-3xl text-accent" id="price-display">{pricing.usd.amount}</div>
+        <div class="font-sans text-3xl text-accent" id="price-display">{pricing.eur.amount}</div>
 
-        <a id="buy-button" href={checkoutUrls.usd} target="_blank"
+        <a id="buy-button" href={checkoutUrls.eur} target="_blank"
            class="block mt-3 bg-accent text-bg font-bold py-4 rounded-xl text-xs tracking-[2px] uppercase hover:bg-accent-hover transition-colors">
           BUY NOW
         </a>
 
+        <!-- Payment method icons -->
+        <div class="flex justify-center items-center gap-3 mt-3" id="payment-icons-eur">
+          <svg class="h-5 text-text-muted/50" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><text x="19" y="15" text-anchor="middle" fill="currentColor" font-size="8" font-family="sans-serif" font-weight="600">VISA</text></svg>
+          <svg class="h-5 text-text-muted/50" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><circle cx="15" cy="12" r="7" fill="currentColor" opacity="0.3"/><circle cx="23" cy="12" r="7" fill="currentColor" opacity="0.2"/></svg>
+          <svg class="h-5 text-text-muted/50" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><text x="19" y="15" text-anchor="middle" fill="currentColor" font-size="6" font-family="sans-serif" font-weight="600">Apple Pay</text></svg>
+          <svg class="h-5 text-text-muted/50" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><text x="19" y="15" text-anchor="middle" fill="currentColor" font-size="5" font-family="sans-serif" font-weight="600">Google Pay</text></svg>
+          <svg class="h-5 text-text-muted/50" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><text x="19" y="15" text-anchor="middle" fill="currentColor" font-size="6" font-family="sans-serif" font-weight="600">PayPal</text></svg>
+        </div>
+        <div class="hidden justify-center items-center gap-3 mt-3" id="payment-icons-uah">
+          <svg class="h-5 text-text-muted/50" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><text x="19" y="15" text-anchor="middle" fill="currentColor" font-size="8" font-family="sans-serif" font-weight="600">VISA</text></svg>
+          <svg class="h-5 text-text-muted/50" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><circle cx="15" cy="12" r="7" fill="currentColor" opacity="0.3"/><circle cx="23" cy="12" r="7" fill="currentColor" opacity="0.2"/></svg>
+          <svg class="h-5 text-text-muted/50" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><text x="19" y="15" text-anchor="middle" fill="currentColor" font-size="6" font-family="sans-serif" font-weight="600">Apple Pay</text></svg>
+          <svg class="h-5 text-text-muted/50" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><text x="19" y="15" text-anchor="middle" fill="currentColor" font-size="5" font-family="sans-serif" font-weight="600">Google Pay</text></svg>
+          <svg class="h-5 text-text-muted/50" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><text x="19" y="15" text-anchor="middle" fill="currentColor" font-size="6" font-family="sans-serif" font-weight="600">mono</text></svg>
+        </div>
+
+        <!-- Trust badges -->
         <div class="flex justify-center gap-4 mt-3 text-xs text-text-muted">
           <span>
             <span class="lang-ua">✓ Миттєва доставка</span>
@@ -286,9 +303,9 @@ const faqQuestionsUa: Record<string, string> = {
 
       <!-- BUY NOW at end of Usage Examples -->
       <div class="mt-8 pt-8 text-center">
-        <a id="buy-button-usage" href={checkoutUrls.usd} target="_blank"
+        <a id="buy-button-usage" href={checkoutUrls.eur} target="_blank"
            class="block bg-accent text-bg font-bold py-4 rounded-xl text-xs tracking-[2px] uppercase hover:bg-accent-hover transition-colors">
-          BUY NOW — <span class="usage-price">{pricing.usd.amount}</span>
+          BUY NOW — <span class="usage-price">{pricing.eur.amount}</span>
         </a>
       </div>
     </div>
@@ -381,9 +398,12 @@ const faqQuestionsUa: Record<string, string> = {
     var usagePrice = document.querySelector('.usage-price');
 
     var priceData = {
-      usd: { amount: '$15.90', url: buyBtn ? buyBtn.href : '#' },
+      eur: { amount: '€15.90', url: buyBtn ? buyBtn.href : '#' },
       uah: { amount: '690₴', url: 'WORKER_URL/api/create-invoice' }
     };
+
+    var iconsEur = document.getElementById('payment-icons-eur');
+    var iconsUah = document.getElementById('payment-icons-uah');
 
     curBtns.forEach(function(btn) {
       btn.addEventListener('click', function() {
@@ -400,6 +420,12 @@ const faqQuestionsUa: Record<string, string> = {
         if (buyBtn) buyBtn.href = priceData[cur].url;
         if (buyBtnUsage) buyBtnUsage.href = priceData[cur].url;
         if (usagePrice) usagePrice.textContent = priceData[cur].amount;
+
+        // Switch payment icons
+        if (iconsEur) iconsEur.classList.toggle('hidden', cur !== 'eur');
+        if (iconsEur) iconsEur.classList.toggle('flex', cur === 'eur');
+        if (iconsUah) iconsUah.classList.toggle('hidden', cur !== 'uah');
+        if (iconsUah) iconsUah.classList.toggle('flex', cur === 'uah');
       });
     });
   });

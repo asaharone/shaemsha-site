@@ -82,13 +82,13 @@ export const usageExamplesOrder = [
 ];
 
 export const pricing = {
-  usd: { amount: '$15.90', currency: 'USD' },
+  eur: { amount: '€15.90', currency: 'EUR' },
   uah: { amount: '690₴', currency: 'UAH' },
 };
 
 // Replace with real URLs after creating accounts
 export const checkoutUrls = {
-  usd: 'https://shaemsha.lemonsqueezy.com/checkout/buy/7554b2dc-08cf-4587-a99d-c8188aefb70f',
+  eur: 'https://shaemsha.lemonsqueezy.com/checkout/buy/7554b2dc-08cf-4587-a99d-c8188aefb70f',
   uah: 'WORKER_URL/api/create-invoice',
 };
 
