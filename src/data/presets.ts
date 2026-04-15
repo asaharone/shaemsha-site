@@ -105,8 +105,8 @@ export const checkoutUrls = {
 
 export const pageContent = {
   intro: {
-    quote: 'Photo is Reality. Preset is Mood.',
-    quoteUa: 'Фото фіксує реальність, а пресет додає їй емоції, настрій та атмосферу.',
+    quote: 'Photo is reality. Preset is mood. Over time, I created a mood palette that became the foundation of my visual identity. The key elements of this vision became preset formulas — a way to keep the same mood and feeling in every shot.',
+    quoteUa: 'Фото фіксує реальність, а пресет додає їй настрій, глибину та атмосферу. На власних фото я роками вибудовувала свою mood-гаму — візуальну основу сторінки та мудбордів. Згодом головні прийоми цього бачення оформилися у preset formulas — як спосіб передати той самий настрій і відчуття кадру.',
     vimeoId: '703936443',
   },
   howItWorks: {
