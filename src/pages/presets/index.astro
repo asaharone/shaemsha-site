@@ -32,54 +32,62 @@ const faqQuestionsUa: Record<string, string> = {
   <IntroHero quote={pc.intro.quote} quoteUa={pc.intro.quoteUa} vimeoId={pc.intro.vimeoId} />
 
   <!-- 2. FIRST SCREEN: Everything needed for purchase -->
-  <section class="pt-4 pb-8 md:pt-6 md:pb-16 px-4">
-    <div class="max-w-[600px] mx-auto">
+  <section class="pt-4 pb-8 md:pt-6 md:pb-12 px-4">
+    <div class="max-w-[600px] md:max-w-5xl mx-auto">
 
-      <!-- Header -->
-      <div class="text-center mb-4">
-        <h1 class="font-serif font-medium tracking-[1px] text-xl md:text-2xl text-text whitespace-nowrap">
-          <span class="lang-ua">Shaemsha Lightroom Пресети — Пак <span class="font-sans">01</span></span>
-          <span class="lang-en hidden">Shaemsha Lightroom Presets — Pack <span class="font-sans">01</span></span>
-        </h1>
-        <p class="text-text-muted text-xs md:text-xs mt-1">
-          <span class="lang-ua">7 авторських пресетів для мобільного та десктопу</span>
-          <span class="lang-en hidden">7 cinematic presets for mobile and desktop</span>
-        </p>
-      </div>
+      <!-- Desktop: two columns. Mobile: single column -->
+      <div class="md:grid md:grid-cols-[1fr_380px] md:gap-8 md:items-start">
 
-      <!-- Main Before/After Photo -->
-      <div id="main-photo">
-        <BeforeAfter
-          beforeImage={defaultPreset.beforeImage}
-          afterImage={defaultPreset.afterImage}
-          presetName={defaultPreset.name}
-          autoPlay={true}
-        />
-      </div>
+        <!-- LEFT: Photo + Strip -->
+        <div>
+          <!-- Main Before/After Photo -->
+          <div id="main-photo">
+            <BeforeAfter
+              beforeImage={defaultPreset.beforeImage}
+              afterImage={defaultPreset.afterImage}
+              presetName={defaultPreset.name}
+              autoPlay={true}
+            />
+          </div>
 
-      <!-- Preset Strip -->
-      <div class="flex gap-2 mt-3 overflow-x-auto pb-2 preset-scrollbar" id="preset-strip">
-        {presets.map((preset, i) => (
-          <button
-            class={`preset-thumb flex-shrink-0 w-[52px] h-[68px] rounded-md overflow-hidden relative transition-opacity ${i === 0 ? 'opacity-100 outline outline-2 outline-offset-2 outline-accent' : 'opacity-50'}`}
-            data-index={i}
-            data-before={preset.beforeImage}
-            data-after={preset.afterImage}
-            data-name={preset.name}
-            type="button"
-            aria-label={`Preview ${preset.name}`}
-          >
-            <img src={preset.afterImage} alt={preset.name} class="w-full h-full object-cover" loading="lazy" />
-            <span class="absolute bottom-1 left-0 right-0 text-center text-[8px] text-white font-medium tracking-wider drop-shadow-lg">{preset.name}</span>
-          </button>
-        ))}
-      </div>
+          <!-- Preset Strip -->
+          <div class="flex gap-2 mt-3 overflow-x-auto pb-2 preset-scrollbar" id="preset-strip">
+            {presets.map((preset, i) => (
+              <button
+                class={`preset-thumb flex-shrink-0 w-[52px] h-[68px] rounded-md overflow-hidden relative transition-opacity ${i === 0 ? 'opacity-100 outline outline-2 outline-offset-2 outline-accent' : 'opacity-50'}`}
+                data-index={i}
+                data-before={preset.beforeImage}
+                data-after={preset.afterImage}
+                data-name={preset.name}
+                type="button"
+                aria-label={`Preview ${preset.name}`}
+              >
+                <img src={preset.afterImage} alt={preset.name} class="w-full h-full object-cover" loading="lazy" />
+                <span class="absolute bottom-1 left-0 right-0 text-center text-[8px] text-white font-medium tracking-wider drop-shadow-lg">{preset.name}</span>
+              </button>
+            ))}
+          </div>
+        </div>
 
-      <!-- "See usage examples" anchor link -->
-      <a href="#usage-examples" class="block text-center py-2 text-xs tracking-[1px] text-accent/70 hover:text-accent uppercase border-b border-white/5 mb-2 transition-colors">
-        <span class="lang-ua">Дивитись приклади ↓</span>
-        <span class="lang-en hidden">See usage examples ↓</span>
-      </a>
+        <!-- RIGHT (desktop) / BELOW (mobile): Title + Buy -->
+        <div class="md:sticky md:top-24">
+          <!-- Header -->
+          <div class="text-center md:text-left mb-4 mt-4 md:mt-0">
+            <h1 class="font-serif font-medium tracking-[1px] text-xl md:text-2xl text-text">
+              <span class="lang-ua">Shaemsha Lightroom Пресети — Пак <span class="font-sans">01</span></span>
+              <span class="lang-en hidden">Shaemsha Lightroom Presets — Pack <span class="font-sans">01</span></span>
+            </h1>
+            <p class="text-text-muted text-xs mt-1">
+              <span class="lang-ua">7 авторських пресетів для мобільного та десктопу</span>
+              <span class="lang-en hidden">7 cinematic presets for mobile and desktop</span>
+            </p>
+          </div>
+
+          <!-- "See usage examples" anchor link -->
+          <a href="#usage-examples" class="block text-center md:text-left py-2 text-xs tracking-[1px] text-accent/70 hover:text-accent uppercase border-b border-white/5 mb-4 transition-colors">
+            <span class="lang-ua">Дивитись приклади ↓</span>
+            <span class="lang-en hidden">See usage examples ↓</span>
+          </a>
 
       <!-- Currency Toggle + Price + Buy -->
       <div class="text-center mt-4">
@@ -123,7 +131,9 @@ const faqQuestionsUa: Record<string, string> = {
             <span class="lang-en hidden">✓ Mobile & Desktop</span>
           </span>
         </div>
-      </div>
+
+        </div><!-- /RIGHT column -->
+      </div><!-- /grid -->
     </div>
   </section>
 
