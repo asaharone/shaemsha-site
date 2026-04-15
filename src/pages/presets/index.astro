@@ -98,13 +98,8 @@ const faqQuestionsUa: Record<string, string> = {
             </p>
           </div>
 
-      <!-- Currency Toggle + Price + Buy -->
+      <!-- Price + Buy -->
       <div class="text-center mt-4">
-        <div class="inline-flex gap-0.5 bg-bg-card rounded-full p-0.5 mb-3" id="currency-toggle">
-          <button class="cur-btn px-4 py-1.5 rounded-full text-xs font-semibold transition-all bg-accent text-bg" data-currency="eur" type="button">EUR</button>
-          <button class="cur-btn px-4 py-1.5 rounded-full text-xs font-semibold transition-all text-text-muted" data-currency="uah" type="button">UAH</button>
-        </div>
-
         <div class="font-sans text-3xl text-accent" id="price-display">{pricing.eur.amount}</div>
 
         <a id="buy-button" href={checkoutUrls.eur} target="_blank"
@@ -113,17 +108,11 @@ const faqQuestionsUa: Record<string, string> = {
         </a>
 
         <!-- Payment method icons -->
-        <div class="flex justify-center md:justify-center items-center gap-3 mt-3" id="payment-icons-eur">
+        <div class="flex justify-center items-center gap-3 mt-3">
           <svg class="h-8 text-text-muted/70" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><text x="19" y="15" text-anchor="middle" fill="currentColor" font-size="8" font-family="sans-serif" font-weight="600">VISA</text></svg>
           <svg class="h-8 text-text-muted/70" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><circle cx="15" cy="12" r="7" fill="currentColor" opacity="0.3"/><circle cx="23" cy="12" r="7" fill="currentColor" opacity="0.2"/></svg>
           <svg class="h-8 text-text-muted/70" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><text x="19" y="15" text-anchor="middle" fill="currentColor" font-size="6" font-family="sans-serif" font-weight="600">Apple Pay</text></svg>
           <svg class="h-8 text-text-muted/70" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><text x="19" y="15" text-anchor="middle" fill="currentColor" font-size="5" font-family="sans-serif" font-weight="600">Google Pay</text></svg>
-        </div>
-        <div class="hidden justify-center md:justify-center items-center gap-3 mt-3" id="payment-icons-uah">
-          <svg class="h-8 text-text-muted/70" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><text x="19" y="15" text-anchor="middle" fill="currentColor" font-size="8" font-family="sans-serif" font-weight="600">VISA</text></svg>
-          <svg class="h-8 text-text-muted/70" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><circle cx="15" cy="12" r="7" fill="currentColor" opacity="0.3"/><circle cx="23" cy="12" r="7" fill="currentColor" opacity="0.2"/></svg>
-          <svg class="h-8 text-text-muted/70" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><text x="19" y="15" text-anchor="middle" fill="currentColor" font-size="6" font-family="sans-serif" font-weight="600">Apple Pay</text></svg>
-          <svg class="h-8 text-text-muted/70" viewBox="0 0 38 24" fill="currentColor"><rect width="38" height="24" rx="3" fill="currentColor" opacity="0.15"/><text x="19" y="15" text-anchor="middle" fill="currentColor" font-size="6" font-family="sans-serif" font-weight="600">mono</text></svg>
         </div>
 
           <!-- What's Included -->
