@@ -15,16 +15,6 @@ const ex = `${base}images/presets/examples/`;
 
 export const presets: Preset[] = [
   {
-    id: 'nude',
-    name: 'NUDE',
-    beforeImage: `${base}images/presets/nude_before.jpg`,
-    afterImage: `${base}images/presets/nude_after.jpg`,
-    description: 'For selfies and daylight portraits — softens skin and cleans up tones while keeping them natural.',
-    descriptionUa: 'Для селфі та портретів при денному світлі — м\'якша шкіра й чисті природні тони.',
-    examplePhotos: [`${ex}nude_after_1.jpg`, `${ex}nude_after_2.jpg`, `${ex}nude_after_3.jpg`],
-    exampleBeforePhotos: [`${ex}nude_before_1.jpg`, `${ex}nude_before_2.jpg`, `${ex}nude_before_3.jpg`],
-  },
-  {
     id: 'dreamy-mood',
     name: 'DREAMY MOOD',
     beforeImage: `${base}images/presets/dreamy_mood_before.jpg`,
@@ -33,6 +23,16 @@ export const presets: Preset[] = [
     descriptionUa: 'Для ніжних кадрів у м\'якому світлі — серпанковий dusty-rose відтінок і теплий dreamy настрій.',
     examplePhotos: [`${ex}dreamymood_after_1.jpg`, `${ex}dreamymood_after_2.jpg`, `${ex}dreamymood_after_3.jpg`],
     exampleBeforePhotos: [`${ex}dreamymood_before_1.jpg`, `${ex}dreamymood_before_2.jpg`, `${ex}dreamymood_before_3.jpg`],
+  },
+  {
+    id: 'nude',
+    name: 'NUDE',
+    beforeImage: `${base}images/presets/nude_before.jpg`,
+    afterImage: `${base}images/presets/nude_after.jpg`,
+    description: 'For selfies and daylight portraits — softens skin and cleans up tones while keeping them natural.',
+    descriptionUa: 'Для селфі та портретів при денному світлі — м\'якша шкіра й чисті природні тони.',
+    examplePhotos: [`${ex}nude_after_1.jpg`, `${ex}nude_after_2.jpg`, `${ex}nude_after_3.jpg`],
+    exampleBeforePhotos: [`${ex}nude_before_1.jpg`, `${ex}nude_before_2.jpg`, `${ex}nude_before_3.jpg`],
   },
   {
     id: 'golden-hour',
