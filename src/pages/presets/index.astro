@@ -7,7 +7,7 @@ import {
   presets, pricing, checkoutUrls, faqItems, pageContent, usageExamplesOrder
 } from '../../data/presets';
 
-const defaultPreset = presets[0];
+const defaultPreset = presets.find(p => p.id === 'dreamy-mood') || presets[0];
 const pc = pageContent;
 
 // Build ordered list of presets for Usage Examples section
@@ -41,7 +41,7 @@ const faqQuestionsUa: Record<string, string> = {
         <!-- LEFT: Photo + Strip -->
         <div>
           <!-- Main Before/After Photo -->
-          <div id="main-photo">
+          <div id="main-photo" class="md:max-h-[70vh] md:overflow-hidden md:rounded-xl">
             <BeforeAfter
               beforeImage={defaultPreset.beforeImage}
               afterImage={defaultPreset.afterImage}
@@ -132,56 +132,40 @@ const faqQuestionsUa: Record<string, string> = {
           </span>
         </div>
 
+          <!-- What's Included (inside right column on desktop) -->
+          <div class="mt-6 pt-4 border-t border-border/30">
+            <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-3">
+              <span class="lang-ua">Що входить</span>
+              <span class="lang-en hidden">What's Included</span>
+            </h2>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2 text-sm">
+                <span class="text-accent">✓</span>
+                <span>
+                  <span class="lang-ua">7 пресетів</span>
+                  <span class="lang-en hidden">7 Presets</span>
+                  <span class="text-text-muted text-xs ml-1">.dng + .xmp</span>
+                </span>
+              </div>
+              <div class="flex items-center gap-2 text-sm">
+                <span class="text-accent">✓</span>
+                <span>
+                  <span class="lang-ua">Інструкція</span>
+                  <span class="lang-en hidden">Install Guide</span>
+                </span>
+              </div>
+              <div class="flex items-center gap-2 text-sm">
+                <span class="text-accent">✓</span>
+                <span>
+                  <span class="lang-ua">Миттєва доставка</span>
+                  <span class="lang-en hidden">Instant Delivery</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
         </div><!-- /RIGHT column -->
       </div><!-- /grid -->
-    </div>
-  </section>
-
-  <!-- 3. WHAT'S INCLUDED -->
-  <section class="py-12 px-4 fade-in">
-    <div class="max-w-[600px] mx-auto">
-      <h2 class="text-accent text-xs tracking-[2px] uppercase font-mono mb-4">
-        <span class="lang-ua">Що входить</span>
-        <span class="lang-en hidden">What's Included</span>
-      </h2>
-      <div class="space-y-3">
-        <div class="flex items-center gap-3 p-3 bg-bg-card rounded-lg">
-          <span class="text-accent text-sm">✓</span>
-          <div>
-            <div class="text-sm text-text">
-              <span class="lang-ua">7 пресетів для Lightroom</span>
-              <span class="lang-en hidden">7 Lightroom Presets</span>
-            </div>
-            <div class="text-xs text-text-muted">.dng (Mobile) + .xmp (Desktop)</div>
-          </div>
-        </div>
-        <div class="flex items-center gap-3 p-3 bg-bg-card rounded-lg">
-          <span class="text-accent text-sm">✓</span>
-          <div>
-            <div class="text-sm text-text">
-              <span class="lang-ua">Інструкція з встановлення</span>
-              <span class="lang-en hidden">Installation Guide</span>
-            </div>
-            <div class="text-xs text-text-muted">
-              <span class="lang-ua">Покрокова для мобільного та десктопу</span>
-              <span class="lang-en hidden">Step-by-step for Mobile & Desktop</span>
-            </div>
-          </div>
-        </div>
-        <div class="flex items-center gap-3 p-3 bg-bg-card rounded-lg">
-          <span class="text-accent text-sm">✓</span>
-          <div>
-            <div class="text-sm text-text">
-              <span class="lang-ua">Миттєва доставка на email</span>
-              <span class="lang-en hidden">Instant Email Delivery</span>
-            </div>
-            <div class="text-xs text-text-muted">
-              <span class="lang-ua">Посилання для завантаження на вашу пошту</span>
-              <span class="lang-en hidden">Download link sent to your email</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
