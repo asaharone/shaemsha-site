@@ -5,11 +5,12 @@ interface Props {
   description: string;
   descriptionUa?: string;
   photos: string[];
+  beforePhotos: string[];
   beforeImage: string;
   afterImage: string;
 }
 
-const { id, name, description, descriptionUa, photos, beforeImage, afterImage } = Astro.props;
+const { id, name, description, descriptionUa, photos, beforePhotos, beforeImage, afterImage } = Astro.props;
 ---
 
 <div id={`preset-${id}`} class="py-8 border-b border-border last:border-b-0 fade-in">
@@ -27,8 +28,8 @@ const { id, name, description, descriptionUa, photos, beforeImage, afterImage } 
         />
         <!-- Before photo (hidden, shown on toggle) -->
         <img
-          src={beforeImage}
-          alt={`${name} before`}
+          src={beforePhotos[i] || beforeImage}
+          alt={`${name} before ${i + 1}`}
           class="usage-img-before absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500"
           loading="lazy"
         />

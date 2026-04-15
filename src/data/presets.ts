@@ -8,14 +8,10 @@ export interface Preset {
   description: string;
   descriptionUa?: string;
   examplePhotos: string[];
+  exampleBeforePhotos: string[];
 }
 
-// Using afterImage as placeholder for examplePhotos (3 copies each).
-// User will replace with real example photos later.
-function examplesFor(id: string): string[] {
-  const afterPath = `${base}images/presets/${id.replace('-', '_')}_after.jpg`;
-  return [afterPath, afterPath, afterPath];
-}
+const ex = `${base}images/presets/examples/`;
 
 export const presets: Preset[] = [
   {
@@ -25,7 +21,8 @@ export const presets: Preset[] = [
     afterImage: `${base}images/presets/nude_after.jpg`,
     description: 'For selfies and daylight portraits — softens skin and cleans up tones while keeping them natural.',
     descriptionUa: 'Для селфі та портретів при денному світлі — м\'якша шкіра й чисті природні тони.',
-    examplePhotos: examplesFor('nude'),
+    examplePhotos: [`${ex}nude_after_1.jpg`, `${ex}nude_after_2.jpg`, `${ex}nude_after_3.jpg`],
+    exampleBeforePhotos: [`${ex}nude_before_1.jpg`, `${ex}nude_before_2.jpg`, `${ex}nude_before_3.jpg`],
   },
   {
     id: 'dreamy-mood',
@@ -34,7 +31,8 @@ export const presets: Preset[] = [
     afterImage: `${base}images/presets/dreamy_mood_after.jpg`,
     description: 'For tender, soft-light moments — adds a hazy dusty-rose glow and dreamy warm mood.',
     descriptionUa: 'Для ніжних кадрів у м\'якому світлі — серпанковий dusty-rose відтінок і теплий dreamy настрій.',
-    examplePhotos: examplesFor('dreamy-mood'),
+    examplePhotos: [`${ex}dreamymood_after_1.jpg`, `${ex}dreamymood_after_2.jpg`, `${ex}dreamymood_after_3.jpg`],
+    exampleBeforePhotos: [`${ex}dreamymood_before_1.jpg`, `${ex}dreamymood_before_2.jpg`, `${ex}dreamymood_before_3.jpg`],
   },
   {
     id: 'golden-hour',
@@ -43,7 +41,8 @@ export const presets: Preset[] = [
     afterImage: `${base}images/presets/golden_hour_after.jpg`,
     description: 'For travel and golden-hour shots — rich beige-gold palette with a warm Moroccan vacation feel.',
     descriptionUa: 'Для travel-зйомки та golden hour — насичена бежево-золота палітра і тепле курортне відчуття Марокко.',
-    examplePhotos: examplesFor('golden-hour'),
+    examplePhotos: [`${ex}goldenhour_after_1.jpg`, `${ex}goldenhour_after_2.jpg`, `${ex}goldenhour_after_3.jpg`],
+    exampleBeforePhotos: [`${ex}goldenhour_before_1.jpg`, `${ex}goldenhour_before_2.jpg`, `${ex}goldenhour_before_3.jpg`],
   },
   {
     id: 'fashion',
@@ -52,7 +51,8 @@ export const presets: Preset[] = [
     afterImage: `${base}images/presets/fashion_after.jpg`,
     description: 'For flash, studio, and street shots — glossy fashion look that makes you stand out, with a sun-kissed glow.',
     descriptionUa: 'Для flash, студії та street-зйомки — глянцевий fashion-вигляд із sun-kissed шкірою, що виділяє в кадрі.',
-    examplePhotos: examplesFor('fashion'),
+    examplePhotos: [`${ex}fashion_after_1.jpg`, `${ex}fashion_after_2.jpg`, `${ex}fashion_after_3.jpg`],
+    exampleBeforePhotos: [`${ex}fashion_before_1.jpg`, `${ex}fashion_before_2.jpg`, `${ex}fashion_before_3.jpg`],
   },
   {
     id: 'art-noir',
@@ -61,7 +61,8 @@ export const presets: Preset[] = [
     afterImage: `${base}images/presets/art_noir_after.jpg`,
     description: 'For statement and artistic shots — adds depth, drama, and a graphic vintage-cinematic look.',
     descriptionUa: 'Для артистичних кадрів зі змістом — глибина, драма та графічний vintage кіно-вигляд.',
-    examplePhotos: examplesFor('art-noir'),
+    examplePhotos: [`${ex}artnoir_after_1.jpg`, `${ex}artnoir_after_2.jpg`, `${ex}artnoir_after_1.jpg`],
+    exampleBeforePhotos: [`${ex}artnoir_before_1.jpg`, `${ex}artnoir_before_2.jpg`, `${ex}artnoir_before_1.jpg`],
   },
   {
     id: 'film-haze',
@@ -70,7 +71,8 @@ export const presets: Preset[] = [
     afterImage: `${base}images/presets/film_haze_after.jpg`,
     description: 'For bright outdoor shots — adds 35mm film haze, soft glow, and a vintage mood.',
     descriptionUa: 'Для яскравих outdoor-кадрів — плівковий 35мм серпанок, м\'яке сяйво й vintage настрій.',
-    examplePhotos: examplesFor('film-haze'),
+    examplePhotos: [`${ex}filmhaze_after_1.jpg`, `${ex}filmhaze_after_2.jpg`, `${ex}filmhaze_after_3.jpg`],
+    exampleBeforePhotos: [`${ex}filmhaze_before_1.jpg`, `${ex}filmhaze_before_2.jpg`, `${ex}filmhaze_before_3.jpg`],
   },
   {
     id: 'honey',
@@ -79,7 +81,8 @@ export const presets: Preset[] = [
     afterImage: `${base}images/presets/honey_after.jpg`,
     description: 'For indoor and interior shots — warm old-money mood, calm and enveloping.',
     descriptionUa: 'Для інтер\'єрних і домашніх кадрів — теплий old-money настрій, спокійний і огортаючий.',
-    examplePhotos: examplesFor('honey'),
+    examplePhotos: [`${ex}honey_after_1.jpg`, `${ex}honey_after_2.jpg`, `${ex}honey_after_3.jpg`],
+    exampleBeforePhotos: [`${ex}honey_before_1.jpg`, `${ex}honey_before_2.jpg`, `${ex}honey_before_3.jpg`],
   },
 ];
 
